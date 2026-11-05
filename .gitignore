@@ -1,0 +1,16 @@
+# Archivos ejecutables e instaladores grandes
+*.exe
+*.msi
+*.zip
+*.rar
+*.7z
+
+# Dependencias y logs
+node_modules/
+*.log
+*.tmp
+
+# Archivos del sistema
+Thumbs.db
+.DS_Store
+desktop.ini

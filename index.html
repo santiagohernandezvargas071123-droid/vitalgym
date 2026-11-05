@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-50 text-slate-800 scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VITALGYM SENA - Tu mejor versión comienza aquí | La Angostura</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            sena: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#39A900', // Verde SENA Oficial
+              600: '#2e8700',
+              700: '#236900',
+              800: '#1b4d00',
+              900: '#0b2b00',
+            }
+          },
+          boxShadow: {
+            'glow-sena': '0 0 25px -5px rgba(57, 169, 0, 0.35)',
+            'card-modern': '0 10px 30px -10px rgba(0, 0, 0, 0.06)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #f8fafc; }
+    ::-webkit-scrollbar-thumb { background: #39A900; border-radius: 6px; }
+    ::-webkit-scrollbar-thumb:hover { background: #236900; }
+
+    .hero-mesh {
+      background: radial-gradient(circle at 10% 20%, rgba(57, 169, 0, 0.22) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.18) 0%, transparent 45%),
+                  radial-gradient(circle at 50% 50%, rgba(35, 105, 0, 0.3) 0%, transparent 60%);
+    }
+
+    .hero-athletes-mask {
+      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 100%);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col font-sans antialiased text-slate-800 bg-slate-50 selection:bg-[#39A900] selection:text-white">
+
+  <!-- Franja decorativa superior institucional SENA -->
+  <div class="h-1.5 bg-gradient-to-r from-[#1b4d00] via-[#39A900] to-emerald-400 w-full sticky top-0 z-50"></div>
+
+  <!-- ===================================================================== -->
+  <!-- BARRA DE NAVEGACIÓN EN BLANCO Y VERDE SENA (ESTRUCTURA DEL MOCKUP)   -->
+  <!-- ===================================================================== -->
+  <header class="border-b border-slate-200/80 bg-white/95 backdrop-blur-xl sticky top-1.5 z-40 px-4 lg:px-8 py-3 flex items-center justify-between shadow-sm transition-all duration-300">
+    
+    <!-- Identidad Institucional: Logo VitalGym SENA -->
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="group flex items-center gap-2 active:scale-95 transition-transform" title="VITALGYM SENA">
+        <img src="logo.png" alt="Logo Oficial VitalGym SENA" class="h-10 w-10 rounded-full object-cover border-2 border-[#39A900] shadow-sm group-hover:scale-105 transition-transform">
+      </a>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <h1 class="text-base font-black tracking-wider uppercase text-slate-900 leading-none">VITALGYM</h1>
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-[#236900] border border-emerald-300 tracking-wide">
+            SENA
+          </span>
+        </div>
+        <p class="text-[9px] text-[#236900] font-bold tracking-widest mt-0.5">ENTRENA · AVANZA · LOGRA</p>
+      </div>
+    </div>
+
+    <!-- Menú de Enlaces Central (Pestañas idénticas a la imagen) -->
+    <nav class="hidden lg:flex items-center gap-1.5 text-xs font-semibold text-slate-600">
+      <a href="#inicio" class="px-3.5 py-1.5 rounded-full bg-emerald-50 text-[#236900] border border-[#39A900] font-bold flex items-center gap-1.5 shadow-sm">
+        <span>🏠</span> Inicio
+      </a>
+      <a href="#roles" class="px-3 py-1.5 rounded-full hover:bg-emerald-50/70 hover:text-[#236900] transition flex items-center gap-1.5">
+        <span>🏋️</span> Servicios
+      </a>
+      <a href="#planes" class="px-3 py-1.5 rounded-full hover:bg-emerald-50/70 hover:text-[#236900] transition flex items-center gap-1.5">
+        <span>👑</span> Membresías
+      </a>
+      <a href="#horarios" class="px-3 py-1.5 rounded-full hover:bg-emerald-50/70 hover:text-[#236900] transition flex items-center gap-1.5">
+        <span>📅</span> Horarios
+      </a>
+      <a href="#roles" class="px-3 py-1.5 rounded-full hover:bg-emerald-50/70 hover:text-[#236900] transition flex items-center gap-1.5">
+        <span>👥</span> Entrenadores
+      </a>
+      <a href="#formulario-prospecto" class="px-3 py-1.5 rounded-full hover:bg-emerald-50/70 hover:text-[#236900] transition flex items-center gap-1.5">
+        <span>✉️</span> Contacto
+      </a>
+    </nav>
+
+    <!-- Controles de Autenticación a la Derecha (Blanco y Verde SENA) -->
+    <div class="flex items-center gap-2.5">
+      <!-- Estado 1: No autenticado -->
+      <div id="auth-guest-controls" class="flex items-center gap-2">
+        <button onclick="abrirModalAuth('login')" class="px-4 py-2 rounded-full bg-white hover:bg-slate-50 text-slate-700 hover:text-[#236900] text-xs font-bold border border-slate-300 hover:border-[#39A900] shadow-sm transition-all duration-200 flex items-center gap-1.5 active:scale-95">
+          <span>👤</span> Iniciar Sesión
+        </button>
+        <button onclick="abrirModalAuth('registro')" class="px-4 py-2 rounded-full bg-[#39A900] hover:bg-[#2e8700] text-white text-xs font-black shadow-md shadow-emerald-700/25 transition-all duration-200 flex items-center gap-1.5 active:scale-95 hover:shadow-lg">
+          <span>👤+</span> Registrarse
+        </button>
+      </div>
+
+      <!-- Estado 2: Autenticado -->
+      <div id="auth-user-controls" class="hidden flex items-center gap-3 bg-emerald-50/90 border border-emerald-200 px-3.5 py-1.5 rounded-full shadow-sm">
+        <div class="h-8 w-8 rounded-full bg-[#39A900] text-white font-black text-xs flex items-center justify-center shadow" id="auth-user-avatar">
+          SH
+        </div>
+        <div class="text-left hidden sm:block">
+          <p class="text-xs font-bold text-slate-900 leading-tight" id="auth-user-name">Santiago Hernández</p>
+          <span class="text-[10px] text-[#236900] font-semibold" id="auth-user-role">Aprendiz SENA</span>
+        </div>
+        <button onclick="cerrarSesion()" title="Cerrar Sesión" class="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-full transition ml-1">
+          <span class="text-sm">🚪</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- CONTENEDOR PRINCIPAL: EXPERIENCIA VITALGYM SENA                        -->
+  <!-- ===================================================================== -->
+  <main class="flex-1 w-full max-w-7xl mx-auto p-4 md:p-6 lg:p-8 space-y-12">
+
+    <!-- =================================================================== -->
+    <!-- 1. HERO SECTION: TAL CUAL A LA IMAGEN EN VERDE Y BLANCO SENA        -->
+    <!-- =================================================================== -->
+    <section id="inicio" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#133d02] via-[#236900] to-[#39A900] text-white p-6 sm:p-10 lg:p-12 shadow-2xl shadow-emerald-900/20 border-2 border-emerald-400/40">
+      
+      <!-- Efecto Mesh Gradient Glow -->
+      <div class="absolute inset-0 hero-mesh pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        
+        <!-- Columna Izquierda: Textos, Título y Acciones -->
+        <div class="lg:col-span-7 space-y-5">
+          
+          <!-- Badge Blanco: BIENVENIDO A VITALGYM -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 border border-white/30 text-white text-[11px] font-black uppercase tracking-wider backdrop-blur-sm shadow-sm">
+            BIENVENIDO A VITALGYM
+          </div>
+
+          <!-- Título Principal Impactante de la Imagen -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white italic tracking-tight leading-[1.1]">
+            Tu mejor versión <br>
+            <span class="text-emerald-200 underline decoration-white/60 decoration-wavy">comienza aquí</span>
+          </h1>
+
+          <!-- Subtítulo de la Imagen -->
+          <p class="text-emerald-50 text-sm sm:text-base leading-relaxed font-normal max-w-lg">
+            Entrena, cuídate y alcanza tus metas con el mejor acompañamiento profesional.
+          </p>
+
+          <!-- Botones de Acción (Píldoras idénticas a la imagen) -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+            <a href="#planes" class="px-6 py-3 rounded-full bg-white hover:bg-emerald-50 text-[#1b4d00] font-black text-xs uppercase tracking-wider flex items-center gap-2 shadow-xl shadow-black/15 transition-all active:scale-95 hover:scale-105">
+              <span>🏋️</span> Conoce nuestros planes <span>&gt;</span>
+            </a>
+            <a href="#horarios" class="px-6 py-3 rounded-full bg-white/20 hover:bg-white/30 text-white font-bold text-xs border border-white/30 flex items-center gap-2 backdrop-blur-sm transition-all active:scale-95">
+              <span>📅</span> Ver horarios <span>&gt;</span>
+            </a>
+          </div>
+
+          <!-- Medidor de Aforo en Vivo (Funcionalidad Viva) -->
+          <div class="pt-2 max-w-md">
+            <div class="bg-white/15 border border-white/25 rounded-2xl p-3.5 space-y-1.5 backdrop-blur-sm shadow-inner">
+              <div class="flex items-center justify-between text-xs font-bold">
+                <span class="flex items-center gap-2 text-white text-[11px]">
+                  <span class="h-2 w-2 rounded-full bg-white animate-pulse"></span> Aforo de Sala en Vivo:
+                </span>
+                <span class="text-white font-mono text-xs font-black" id="contador-aforo">14 de 35 en sala</span>
+              </div>
+              <div class="h-2 w-full bg-black/25 rounded-full overflow-hidden border border-white/20">
+                <div id="progreso-aforo" class="h-full bg-white rounded-full transition-all duration-700 shadow" style="width: 40%"></div>
+              </div>
+              <div class="flex items-center justify-between text-[10px] text-emerald-100">
+                <span>Capacidad máxima en sala: 35 usuarios</span>
+                <span class="text-white font-bold">● Disponibilidad Alta</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Foto de Atletas con Mancuernas y Letras Neón "ENTRENA AVANZA LOGRA" -->
+        <div class="lg:col-span-5 flex items-center justify-center relative">
+          <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/90 group bg-white">
+            <img src="hero_athletes.jpg" alt="Entrena Avanza Logra VitalGym SENA" class="w-full h-auto object-cover transform group-hover:scale-105 transition-all duration-700 hero-athletes-mask">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#133d02]/30 via-transparent to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- BARRA FLOTANTE DE 5 TARJETAS DE MÉTRICAS (BLANCO Y VERDE SENA)      -->
+    <!-- =================================================================== -->
+    <div class="bg-white border-2 border-slate-200/90 rounded-2xl p-4 lg:p-5 shadow-xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-center">
+      
+      <!-- 1. Inversión -->
+      <div class="flex items-center gap-3 p-2">
+        <div class="h-11 w-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-[#236900] shrink-0 shadow-inner">
+          🪙
+        </div>
+        <div>
+          <span class="text-[11px] text-slate-500 font-medium block">Inversión</span>
+          <span class="text-sm font-black text-slate-900 block">$0 COP - SENA</span>
+          <span class="text-[10px] text-[#236900] font-bold block">100% Gratuito</span>
+        </div>
+      </div>
+
+      <!-- 2. Control -->
+      <div class="flex items-center gap-3 p-2">
+        <div class="h-11 w-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-[#236900] shrink-0 shadow-inner">
+          🛡️
+        </div>
+        <div>
+          <span class="text-[11px] text-slate-500 font-medium block">Control</span>
+          <span class="text-sm font-black text-slate-900 block">Carnet QR</span>
+          <span class="text-[10px] text-slate-500 block">Tu acceso digital</span>
+        </div>
+      </div>
+
+      <!-- 3. Equipamiento -->
+      <div class="flex items-center gap-3 p-2">
+        <div class="h-11 w-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-[#236900] shrink-0 shadow-inner">
+          🏋️
+        </div>
+        <div>
+          <span class="text-[11px] text-slate-500 font-medium block">Equipamiento</span>
+          <span class="text-sm font-black text-slate-900 block">+45 Máquinas</span>
+          <span class="text-[10px] text-slate-500 block">Entrenamiento completo</span>
+        </div>
+      </div>
+
+      <!-- 4. Valoración -->
+      <div class="flex items-center gap-3 p-2">
+        <div class="h-11 w-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-[#236900] shrink-0 shadow-inner">
+          ⭐
+        </div>
+        <div>
+          <span class="text-[11px] text-slate-500 font-medium block">Valoración</span>
+          <span class="text-sm font-black text-slate-900 block">IMC (OMS)</span>
+          <span class="text-[10px] text-slate-500 block">Tu salud primero</span>
+        </div>
+      </div>
+
+      <!-- 5. Tu bienestar, nuestra prioridad (Cápsula curva destacada) -->
+      <div class="bg-emerald-50 border-2 border-[#39A900] rounded-xl p-3 flex items-center gap-3 col-span-2 sm:col-span-1 shadow-sm">
+        <div class="h-11 w-11 rounded-xl bg-[#39A900] text-white flex items-center justify-center text-2xl shrink-0 shadow-sm">
+          🏆
+        </div>
+        <div>
+          <p class="text-xs font-bold text-slate-900 leading-tight">
+            Tu bienestar,<br>
+            <span class="text-[#236900] italic font-black">nuestra prioridad</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- 2. SECCIÓN: ¿POR QUÉ ELEGIR VITALGYM? (BLANCO Y VERDE SENA)        -->
+    <!-- =================================================================== -->
+    <section class="bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl relative overflow-hidden">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Columna Izquierda: Información y los 4 Beneficios en fila -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Badge con Rayito Verde y Línea Decorativa -->
+          <div class="flex items-center gap-2 text-xs font-black text-[#236900]">
+            <span>⚡</span> <span>¿Por qué elegir VITALGYM?</span>
+            <div class="h-0.5 w-14 bg-[#39A900]"></div>
+          </div>
+
+          <!-- Título de Sección -->
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 italic tracking-tight">
+            Más que un gimnasio, <span class="text-[#236900]">una comunidad</span>
+          </h2>
+
+          <!-- Fila de los 4 Beneficios de la Imagen -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-100">
+            
+            <!-- 1. Salud -->
+            <div class="space-y-2">
+              <div class="h-11 w-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-[#236900] shadow-inner">
+                💚
+              </div>
+              <p class="text-xs font-bold text-slate-800 leading-snug">
+                Mejora tu salud física y mental
+              </p>
+            </div>
+
+            <!-- 2. Entrenadores -->
+            <div class="space-y-2">
+              <div class="h-11 w-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-[#236900] shadow-inner">
+                👥
+              </div>
+              <p class="text-xs font-bold text-slate-800 leading-snug">
+                Entrenadores certificados
+              </p>
+            </div>
+
+            <!-- 3. Horarios -->
+            <div class="space-y-2">
+              <div class="h-11 w-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-[#236900] shadow-inner">
+                📅
+              </div>
+              <p class="text-xs font-bold text-slate-800 leading-snug">
+                Horarios flexibles
+              </p>
+            </div>
+
+            <!-- 4. Planes -->
+            <div class="space-y-2">
+              <div class="h-11 w-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-[#236900] shadow-inner">
+                📊
+              </div>
+              <p class="text-xs font-bold text-slate-800 leading-snug">
+                Planes personalizados
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Foto del Gimnasio con Neón "DISCIPLINA RESULTADOS" -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-2xl overflow-hidden border-2 border-emerald-200 shadow-xl group">
+            <img src="gym_interior.jpg" alt="Instalaciones VitalGym Disciplina y Resultados" class="w-full h-52 sm:h-60 object-cover transform group-hover:scale-105 transition-all duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 3. MÓDULOS DEL SISTEMA POR ROL (BLANCO Y VERDE SENA)               -->
+    <!-- =================================================================== -->
+    <section id="roles" class="space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-black uppercase tracking-wider text-[#39A900] flex items-center gap-1.5">
+            <span>👥</span> Portal Institucional Integrado
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
+            Módulos del Sistema según tu Perfil
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Selecciona tu perfil en el Centro de Formación para ingresar directamente a tu consola de herramientas.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1.5 shadow-sm">
+            <span>🛡️</span> HU-01: Bloqueo a 3 intentos
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjetas de Roles Principales -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- TARJETA 1: MÓDULO APRENDIZ -->
+        <div onclick="abrirLoginPorRol('aprendiz')" class="cursor-pointer bg-white border-2 border-slate-200/90 hover:border-[#39A900] rounded-3xl p-6 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#236900] to-[#39A900]"></div>
+          
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="h-14 w-14 rounded-2xl bg-emerald-50 border border-emerald-200 text-[#236900] flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shadow-inner">
+                🎓
+              </div>
+              <span class="text-[10px] font-black px-3 py-1 rounded-full bg-emerald-100 text-[#236900] border border-emerald-300 uppercase tracking-wider">
+                Fichas SENA
+              </span>
+            </div>
+
+            <div>
+              <h4 class="text-xl font-black text-slate-900 group-hover:text-[#236900] transition">Módulo Aprendiz</h4>
+              <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                Panel de entrenamiento personal para aprendices activos. Consulta tus rutinas, acumula puntos de constancia y accede con tu Carnet QR.
+              </p>
+            </div>
+
+            <ul class="text-xs text-slate-600 space-y-2.5 pt-3 border-t border-slate-100">
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Rutinas con sobrecarga progresiva (Push-Pull-Legs)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Carnet digital interactivo con Código QR para torniquete</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Retos deportivos y Puntos de Constancia (+10 Pts)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Tabla de líderes mensual de La Angostura</span>
+              </li>
+            </ul>
+
+            <div class="p-3 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 text-[11px] text-slate-700 flex items-center justify-between">
+              <div>
+                <span class="font-bold text-[#236900]">Perfil Demo:</span>
+                <span class="text-slate-600">Santiago H. (1107530057)</span>
+              </div>
+              <span class="text-[10px] bg-white px-2 py-0.5 rounded-md font-bold text-slate-600 border border-emerald-200">ADSO</span>
+            </div>
+          </div>
+
+          <div class="pt-5 border-t border-slate-100 mt-5 flex items-center justify-between text-xs font-black text-[#39A900] group-hover:translate-x-1 transition-transform">
+            <span>Ingresar como Aprendiz</span>
+            <span class="text-base">→</span>
+          </div>
+        </div>
+
+        <!-- TARJETA 2: MÓDULO INSTRUCTOR -->
+        <div onclick="abrirLoginPorRol('entrenador')" class="cursor-pointer bg-white border-2 border-slate-200/90 hover:border-[#39A900] rounded-3xl p-6 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#236900] to-[#39A900]"></div>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="h-14 w-14 rounded-2xl bg-emerald-50 border border-emerald-200 text-[#236900] flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shadow-inner">
+                👩‍🏫
+              </div>
+              <span class="text-[10px] font-black px-3 py-1 rounded-full bg-emerald-100 text-[#236900] border border-emerald-300 uppercase tracking-wider">
+                Área Técnica
+              </span>
+            </div>
+
+            <div>
+              <h4 class="text-xl font-black text-slate-900 group-hover:text-[#236900] transition">Módulo Instructor</h4>
+              <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                Panel técnico de acondicionamiento físico. Realiza valoraciones corporales, grafica la evolución de los aprendices y formula planes de ejercicio.
+              </p>
+            </div>
+
+            <ul class="text-xs text-slate-600 space-y-2.5 pt-3 border-t border-slate-100">
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Ficha antropométrica con cálculo automático de IMC (OMS)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Gráficas evolutivas interactivas en tiempo real en Chart.js</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Prescripción técnica de rutinas, series y descansos</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Consentimiento de Habeas Data para fotografías de avance</span>
+              </li>
+            </ul>
+
+            <div class="p-3 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 text-[11px] text-slate-700 flex items-center justify-between">
+              <div>
+                <span class="font-bold text-[#236900]">Perfil Demo:</span>
+                <span class="text-slate-600">Martha R. (martha.rivera@...)</span>
+              </div>
+              <span class="text-[10px] bg-white px-2 py-0.5 rounded-md font-bold text-slate-600 border border-emerald-200">Coach</span>
+            </div>
+          </div>
+
+          <div class="pt-5 border-t border-slate-100 mt-5 flex items-center justify-between text-xs font-black text-[#39A900] group-hover:translate-x-1 transition-transform">
+            <span>Ingresar como Instructora</span>
+            <span class="text-base">→</span>
+          </div>
+        </div>
+
+        <!-- TARJETA 3: MÓDULO ADMINISTRADOR -->
+        <div onclick="abrirLoginPorRol('admin')" class="cursor-pointer bg-white border-2 border-slate-200/90 hover:border-[#39A900] rounded-3xl p-6 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#1b4d00] to-[#236900]"></div>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="h-14 w-14 rounded-2xl bg-emerald-50 border border-emerald-200 text-[#236900] flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shadow-inner">
+                ⚙️
+              </div>
+              <span class="text-[10px] font-black px-3 py-1 rounded-full bg-emerald-100 text-[#236900] border border-emerald-300 uppercase tracking-wider">
+                Coordinación
+              </span>
+            </div>
+
+            <div>
+              <h4 class="text-xl font-black text-slate-900 group-hover:text-[#236900] transition">Módulo Administrador</h4>
+              <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                Centro de gestión y control del gimnasio. Administra el inventario de maquinaria, movimientos entre salas, órdenes técnicas y reportes institucionales.
+              </p>
+            </div>
+
+            <ul class="text-xs text-slate-600 space-y-2.5 pt-3 border-t border-slate-100">
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Inventario biomecánico con filtros en vivo y búsqueda</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Traslados y movimientos de equipos entre salones</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Órdenes de mantenimiento correctivo y preventivo</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="h-4 w-4 rounded-full bg-emerald-100 text-[#236900] font-black flex items-center justify-center text-[10px]">✓</span>
+                <span>Auditoría de seguridad (HU-01) y Reporte Mensual SENA</span>
+              </li>
+            </ul>
+
+            <div class="p-3 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 text-[11px] text-slate-700 flex items-center justify-between">
+              <div>
+                <span class="font-bold text-[#236900]">Perfil Demo:</span>
+                <span class="text-slate-600">Admin General (admin@...)</span>
+              </div>
+              <span class="text-[10px] bg-white px-2 py-0.5 rounded-md font-bold text-slate-600 border border-emerald-200">Master</span>
+            </div>
+          </div>
+
+          <div class="pt-5 border-t border-slate-100 mt-5 flex items-center justify-between text-xs font-black text-[#39A900] group-hover:translate-x-1 transition-transform">
+            <span>Ingresar como Administrador</span>
+            <span class="text-base">→</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ACCESO RÁPIDO ADICIONAL: MÓDULO RECEPCIÓN & TORNIQUETES QR -->
+      <div class="bg-gradient-to-r from-[#1b4d00] via-[#236900] to-[#39A900] rounded-3xl p-6 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border-2 border-emerald-400/30">
+        <div class="flex items-center gap-4">
+          <div class="h-12 w-12 rounded-2xl bg-white/15 flex items-center justify-center text-2xl border border-white/25 shrink-0">
+            🏢
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="text-base font-black text-white">Módulo de Recepción & Torniquete Biométrico</h4>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/20 text-white border border-white/30">
+                Staff Ingresos
+              </span>
+            </div>
+            <p class="text-xs text-emerald-100/90 mt-0.5">
+              Escáner de código QR de aprendices, control de aforo por torniquete y bitácora de turnos en tiempo real.
+            </p>
+          </div>
+        </div>
+        <a href="recepcion.html" class="px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-[#236900] hover:text-[#1b4d00] text-xs font-black uppercase tracking-wider transition shadow-lg shadow-black/10 flex items-center gap-2 shrink-0 active:scale-95">
+          <span>📱</span> Abrir Consola Recepción →
+        </a>
+      </div>
+
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 4. HERRAMIENTA INTERACTIVA: CALCULADORA RÁPIDA DE IMC (OMS)        -->
+    <!-- =================================================================== -->
+    <section id="calculadora-imc" class="bg-white border-2 border-slate-200 rounded-3xl p-6 md:p-10 shadow-card-modern space-y-6 relative overflow-hidden">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-100 pb-5">
+        <div>
+          <span class="text-xs font-black uppercase tracking-wider text-[#39A900] flex items-center gap-1.5">
+            <span>⚡</span> Herramienta Diagnóstica
+          </span>
+          <h3 class="text-2xl font-black text-slate-900 mt-1">
+            Calculadora Interactiva de IMC & Diagnóstico OMS
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+            Conoce tu Índice de Masa Corporal y recibe al instante tu recomendación física adaptada para el gimnasio del SENA.
+          </p>
+        </div>
+        <span class="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl flex items-center gap-1.5 w-fit">
+          <span>🩺</span> Estándar OMS (18.5 - 24.9)
+        </span>
+      </div>
+
+      <form onsubmit="calcularImcLanding(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">Peso Corporal (kg) *</label>
+          <input type="number" id="calc-peso" step="0.1" required placeholder="Ej: 72.5" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900] focus:border-[#39A900]">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">Estatura (cm) *</label>
+          <input type="number" id="calc-altura" step="1" required placeholder="Ej: 175" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900] focus:border-[#39A900]">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">Objetivo de Entrenamiento</label>
+          <select id="calc-objetivo" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            <option value="hipertrofia">Hipertrofia & Ganancia Muscular</option>
+            <option value="fuerza">Fuerza & Rendimiento Deportivo</option>
+            <option value="cardio">Pérdida de Grasa & Resistencia</option>
+            <option value="salud">Salud & Tonificación General</option>
+          </select>
+        </div>
+
+        <div class="flex items-end">
+          <button type="submit" class="w-full py-2.5 px-4 rounded-2xl bg-[#39A900] hover:bg-[#2e8700] text-white font-black text-xs uppercase tracking-wider transition-all shadow-md shadow-emerald-700/20 active:scale-95 flex items-center justify-center gap-2">
+            <span>⚡</span> Calcular Diagnóstico
+          </button>
+        </div>
+      </form>
+
+      <!-- Contenedor del Resultado Calculado Dinámicamente -->
+      <div id="calc-resultado-card" class="hidden"></div>
+
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 5. CATÁLOGO Y PARRILLA DE CLASES DIRIGIDAS EN VIVO (HU-07)          -->
+    <!-- =================================================================== -->
+    <section id="horarios" class="space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-black uppercase tracking-wider text-[#39A900] flex items-center gap-1.5">
+            <span>📅</span> Programación Semanal
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
+            Catálogo y Horarios de Clases Dirigidas
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+            Reserva tu cupo en tiempo real. Control de aforo interactivo con cupos limitados por sesión.
+          </p>
+        </div>
+        
+        <!-- Filtros por Zona de Salón -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" onclick="filtrarClasesLanding('TODAS')" data-zona="TODAS" class="btn-filtro-clase px-4 py-2 rounded-xl text-xs font-black transition bg-[#39A900] text-white shadow-md shadow-emerald-700/20">
+            Todas
+          </button>
+          <button type="button" onclick="filtrarClasesLanding('Spinning')" data-zona="Spinning" class="btn-filtro-clase px-4 py-2 rounded-xl text-xs font-bold transition bg-white hover:bg-slate-100 text-slate-600 border border-slate-200">
+            Spinning
+          </button>
+          <button type="button" onclick="filtrarClasesLanding('Funcional')" data-zona="Funcional" class="btn-filtro-clase px-4 py-2 rounded-xl text-xs font-bold transition bg-white hover:bg-slate-100 text-slate-600 border border-slate-200">
+            Funcional & HIIT
+          </button>
+          <button type="button" onclick="filtrarClasesLanding('Zen')" data-zona="Zen" class="btn-filtro-clase px-4 py-2 rounded-xl text-xs font-bold transition bg-white hover:bg-slate-100 text-slate-600 border border-slate-200">
+            Yoga Zen
+          </button>
+        </div>
+      </div>
+
+      <!-- Grid de Clases Inyectado Dinámicamente por app.js -->
+      <div id="grid-clases-grupales" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Renderizado reactivamente con progress bar y badges en app.js -->
+      </div>
+
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 6. INSTALACIONES Y ZONAS DEPORTIVAS DE LA ANGOSTURA                 -->
+    <!-- =================================================================== -->
+    <section id="instalaciones" class="space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-black uppercase tracking-wider text-[#39A900] flex items-center gap-1.5">
+            <span>🏢</span> Espacios Especializados
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
+            Zonas e Instalaciones de Alto Rendimiento
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+            Equipamiento biomecánico profesional para musculación, potencia, resistencia cardiovascular y movilidad.
+          </p>
+        </div>
+        <span class="text-xs font-bold text-[#236900] bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl shadow-sm">
+          Sala Climatizada · Zona de Hidratación
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Zona 1: Musculación -->
+        <div class="bg-white border-2 border-slate-200/90 hover:border-[#39A900] rounded-3xl p-6 space-y-4 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="h-12 w-12 rounded-2xl bg-emerald-50 text-[#236900] border border-emerald-200 flex items-center justify-center text-2xl group-hover:scale-110 transition shadow-inner">
+              💪
+            </div>
+            <h4 class="text-base font-black text-slate-900 group-hover:text-[#236900] transition">Musculación & Fuerza</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Prensas 45° Hammer Strength, bancos planos olímpicos Rogue, mancuernas de 2kg a 40kg y torres dobles de polea cruzada.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[10px] font-bold text-[#236900] bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">
+              Aforo: 15 usuarios
+            </span>
+            <span class="text-[10px] text-slate-400 font-semibold">Hammer Strength</span>
+          </div>
+        </div>
+
+        <!-- Zona 2: Cardio -->
+        <div class="bg-white border-2 border-slate-200/90 hover:border-[#39A900] rounded-3xl p-6 space-y-4 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="h-12 w-12 rounded-2xl bg-emerald-50 text-[#236900] border border-emerald-200 flex items-center justify-center text-2xl group-hover:scale-110 transition shadow-inner">
+              🏃
+            </div>
+            <h4 class="text-base font-black text-slate-900 group-hover:text-[#236900] transition">Zona Cardiovascular</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Caminadoras profesionales Matrix T70 con pantalla táctil, elípticas ergométricas de bajo impacto y remos Concept2.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[10px] font-bold text-[#236900] bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">
+              Aforo: 10 usuarios
+            </span>
+            <span class="text-[10px] text-slate-400 font-semibold">Matrix T70</span>
+          </div>
+        </div>
+
+        <!-- Zona 3: Spinning -->
+        <div class="bg-white border-2 border-slate-200/90 hover:border-[#39A900] rounded-3xl p-6 space-y-4 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="h-12 w-12 rounded-2xl bg-emerald-50 text-[#236900] border border-emerald-200 flex items-center justify-center text-2xl group-hover:scale-110 transition shadow-inner">
+              🚴
+            </div>
+            <h4 class="text-base font-black text-slate-900 group-hover:text-[#236900] transition">Salón Spinning Indoor</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              20 bicicletas magnéticas Schwinn IC4 con volante de 18kg, medición de cadencia por Bluetooth y sistema de audio envolvente.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[10px] font-bold text-[#236900] bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">
+              Aforo: 20 cupos
+            </span>
+            <span class="text-[10px] text-slate-400 font-semibold">Schwinn IC4</span>
+          </div>
+        </div>
+
+        <!-- Zona 4: Funcional y Zen -->
+        <div class="bg-white border-2 border-slate-200/90 hover:border-[#39A900] rounded-3xl p-6 space-y-4 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="h-12 w-12 rounded-2xl bg-emerald-50 text-[#236900] border border-emerald-200 flex items-center justify-center text-2xl group-hover:scale-110 transition shadow-inner">
+              🧘
+            </div>
+            <h4 class="text-base font-black text-slate-900 group-hover:text-[#236900] transition">Zona Funcional & Zen</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Cajones pliométricos, cuerdas de batalla, balones medicinales, esterillas de yoga y bandas para calentamiento dinámico.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[10px] font-bold text-[#236900] bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">
+              Aforo: 18 usuarios
+            </span>
+            <span class="text-[10px] text-slate-400 font-semibold">Cross-Training</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 7. PLANES FORMATIVOS $0 COP (CONVENIO SENA BIENESTAR)              -->
+    <!-- =================================================================== -->
+    <section id="planes" class="space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-black uppercase tracking-wider text-[#39A900] flex items-center gap-1.5">
+            <span>🏷️</span> Membresías Institucionales
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
+            Planes de Acondicionamiento Físico
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+            100% financiado por el Convenio de Bienestar al Aprendiz SENA. Sin ningún costo de inscripción ni mensualidad.
+          </p>
+        </div>
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-50 text-[#236900] border border-emerald-300 w-fit shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-[#39A900] animate-pulse"></span>
+          Sin Costo · 100% Gratuito SENA
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        
+        <!-- PLAN 1: BRONCE -->
+        <div class="bg-white border-2 border-slate-200 hover:border-[#39A900] rounded-3xl p-6 space-y-4 flex flex-col justify-between transition-all duration-300 hover:shadow-xl group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-xl bg-emerald-50 text-[#236900] border border-emerald-200 flex items-center gap-1">
+                <span>🥉</span> Nivel Básico
+              </span>
+              <span class="text-[10px] text-slate-500 font-bold">90 Días</span>
+            </div>
+            <h4 class="text-xl font-black text-slate-900 group-hover:text-[#236900] transition">Plan Bronce</h4>
+            <div>
+              <p class="text-3xl font-black text-[#236900] flex items-baseline gap-2">
+                $0 <span class="text-xs text-slate-500 font-normal">COP / Gratuito</span>
+              </p>
+              <p class="text-[11px] text-slate-500 font-medium mt-0.5">Comunidad educativa SENA La Angostura</p>
+            </div>
+            <div class="border-t border-slate-100 pt-3">
+              <ul class="text-xs text-slate-600 space-y-2.5">
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Acceso a zona de pesas y musculación</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Acceso a trotadoras y elípticas de cardio</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Control de asistencia con <strong>Código QR personal</strong></span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Uso de casilleros y zona de hidratación</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <button onclick="seleccionarPlan('Plan Bronce')" class="w-full text-center py-2.5 bg-emerald-50/70 hover:bg-emerald-100 text-[#236900] text-xs font-bold rounded-2xl border border-emerald-200 hover:border-[#39A900] transition">
+            Elegir Plan Bronce
+          </button>
+        </div>
+
+        <!-- PLAN 2: PLATA -->
+        <div class="bg-white border-2 border-slate-200 hover:border-[#39A900] rounded-3xl p-6 space-y-4 flex flex-col justify-between transition-all duration-300 hover:shadow-xl group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-xl bg-emerald-50 text-[#236900] border border-emerald-200 flex items-center gap-1">
+                <span>🥈</span> Nivel Intermedio
+              </span>
+              <span class="text-[10px] text-slate-500 font-bold">180 Días</span>
+            </div>
+            <h4 class="text-xl font-black text-slate-900 group-hover:text-[#236900] transition">Plan Plata</h4>
+            <div>
+              <p class="text-3xl font-black text-[#236900] flex items-baseline gap-2">
+                $0 <span class="text-xs text-slate-500 font-normal">COP / Gratuito</span>
+              </p>
+              <p class="text-[11px] text-slate-500 font-medium mt-0.5">Comunidad educativa SENA La Angostura</p>
+            </div>
+            <div class="border-t border-slate-100 pt-3">
+              <ul class="text-xs text-slate-600 space-y-2.5">
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span><strong>Todo lo incluido en el Plan Bronce</strong></span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Valoración antropométrica con <strong>cálculo de IMC (OMS)</strong></span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Asignación de plan de acondicionamiento físico</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Reserva y cupo en <strong>clases grupales presenciales</strong></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <button onclick="seleccionarPlan('Plan Plata')" class="w-full text-center py-2.5 bg-emerald-50/70 hover:bg-emerald-100 text-[#236900] text-xs font-bold rounded-2xl border border-emerald-200 hover:border-[#39A900] transition">
+            Elegir Plan Plata
+          </button>
+        </div>
+
+        <!-- PLAN 3: ORO (DESTACADO SENA VERDE Y BLANCO) -->
+        <div class="bg-white border-2 border-[#39A900] rounded-3xl p-6 space-y-4 flex flex-col justify-between relative shadow-xl shadow-emerald-700/15 hover:border-[#236900] transition-all duration-300 group -translate-y-1">
+          <span class="absolute -top-3.5 right-6 bg-[#39A900] text-white text-[10px] font-black uppercase px-3.5 py-1 rounded-full shadow-md flex items-center gap-1.5 tracking-wider">
+            <span>⭐</span> Recomendado Bienestar SENA
+          </span>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-xl bg-emerald-50 text-[#236900] border border-emerald-200 flex items-center gap-1">
+                <span>🥇</span> Nivel Élite
+              </span>
+              <span class="text-[10px] text-[#236900] font-black">365 Días</span>
+            </div>
+            <h4 class="text-xl font-black text-slate-900 group-hover:text-[#236900] transition">Plan Oro</h4>
+            <div>
+              <p class="text-3xl font-black text-[#39A900] flex items-baseline gap-2">
+                $0 <span class="text-xs text-slate-500 font-normal">COP / Gratuito</span>
+              </p>
+              <p class="text-[11px] text-slate-500 font-medium mt-0.5">Comunidad educativa SENA La Angostura</p>
+            </div>
+            <div class="border-t border-slate-100 pt-3">
+              <ul class="text-xs text-slate-600 space-y-2.5">
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span><strong>Todo lo de los Planes Bronce y Plata</strong></span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Rutinas personalizadas con <strong>sobrecarga progresiva (RPE/RIR)</strong></span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Participación en <strong>Retos Deportivos y Tabla de Líderes (+10 Pts)</strong></span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Registro fotográfico de evolución física con Habeas Data</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-[#39A900] font-bold">✓</span>
+                  <span>Asesoría continua con instructores titulares del Centro</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <button onclick="seleccionarPlan('Plan Oro')" class="w-full text-center py-3 bg-[#39A900] hover:bg-[#2e8700] text-white text-xs font-black uppercase tracking-wider rounded-2xl transition shadow-md shadow-emerald-700/20 active:scale-95">
+            Inscribirme al Plan Oro ($0)
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 8. REGLAMENTO Y BIOSEGURIDAD OBLIGATORIA                            -->
+    <!-- =================================================================== -->
+    <section id="normas" class="bg-emerald-50/70 border border-emerald-200 rounded-3xl p-6 md:p-8 space-y-6">
+      
+      <div class="flex items-center gap-3">
+        <span class="p-2.5 rounded-2xl bg-white border border-emerald-300 text-[#236900] text-xl shadow-sm">📋</span>
+        <div>
+          <h3 class="text-lg font-black text-slate-900">Reglamento y Requisitos de Ingreso al Gimnasio</h3>
+          <p class="text-xs text-slate-500">Normativa de convivencia, bioseguridad y uso responsable de las instalaciones del SENA.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="bg-white p-5 rounded-2xl border border-emerald-200/90 space-y-2 shadow-sm">
+          <span class="text-2xl">🧽</span>
+          <h5 class="text-xs font-black text-slate-900">Toalla de Mano Personal</h5>
+          <p class="text-[11px] text-slate-500 leading-relaxed">
+            Obligatoria en todo momento para secar sudor y desinfectar el tapizado de las máquinas tras su uso.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-emerald-200/90 space-y-2 shadow-sm">
+          <span class="text-2xl">👟</span>
+          <h5 class="text-xs font-black text-slate-900">Calzado & Ropa Deportiva</h5>
+          <p class="text-[11px] text-slate-500 leading-relaxed">
+            Prohibido el ingreso con chanclas, calzado de trabajo o ropa no deportiva para prevenir accidentes biomecánicos.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-emerald-200/90 space-y-2 shadow-sm">
+          <span class="text-2xl">💧</span>
+          <h5 class="text-xs font-black text-slate-900">Termo de Hidratación</h5>
+          <p class="text-[11px] text-slate-500 leading-relaxed">
+            Traer termo reutilizable personal. Prohibido el ingreso de envases de vidrio al área de máquinas.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-emerald-200/90 space-y-2 shadow-sm">
+          <span class="text-2xl">📱</span>
+          <h5 class="text-xs font-black text-slate-900">Carnet Digital o Cédula</h5>
+          <p class="text-[11px] text-slate-500 leading-relaxed">
+            Presenta tu Código QR en torniquete para registrar tu asistencia y sumar puntos de constancia (+10 Pts).
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 9. FORMULARIO DE CAPTACIÓN / SOLICITUD DE AFILIACIÓN               -->
+    <!-- =================================================================== -->
+    <section id="formulario-prospecto" class="bg-white border-2 border-slate-200 rounded-3xl p-6 md:p-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center shadow-card-modern">
+      
+      <div class="md:col-span-5 space-y-3.5">
+        <span class="text-xs font-black uppercase tracking-wider text-[#39A900]">Comunidad La Angostura</span>
+        <h3 class="text-2xl sm:text-3xl font-black text-slate-900">Activa tu membresía deportiva sin costo</h3>
+        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+          Ven a conocer las máquinas, el salón de spinning y la zona funcional. Déjanos tus datos institucionales y agendaremos tu inducción diagnóstica.
+        </p>
+        <div class="text-xs text-slate-600 space-y-2 pt-2 border-t border-slate-100">
+          <p class="flex items-center gap-2">
+            <span>📍</span> Centro de Formación Agroindustrial La Angostura, Huila
+          </p>
+          <p class="flex items-center gap-2">
+            <span>⏰</span> Lun - Vie: 6:00 AM - 9:00 PM | Sáb: 7:00 AM - 1:00 PM
+          </p>
+        </div>
+      </div>
+
+      <form id="form-lead-landing" onsubmit="enviarFormularioProspecto(event)" class="md:col-span-7 space-y-4">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Nombre Completo *</label>
+            <input type="text" id="lead-nombre" required placeholder="Ej: Camilo Torres" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900] focus:border-[#39A900]">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Número de WhatsApp *</label>
+            <input type="tel" id="lead-telefono" required placeholder="Ej: 3101234567" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900] focus:border-[#39A900]">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Plan de Interés ($0) *</label>
+            <select id="lead-plan" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+              <option value="Plan Oro">Plan Oro (Completo - $0 COP)</option>
+              <option value="Plan Plata">Plan Plata (Intermedio - $0 COP)</option>
+              <option value="Plan Bronce">Plan Bronce (Básico - $0 COP)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Horario Preferido</label>
+            <select id="lead-horario" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+              <option value="manana">Mañana (6:00 AM - 12:00 PM)</option>
+              <option value="tarde">Tarde (12:00 PM - 5:00 PM)</option>
+              <option value="noche">Noche (5:00 PM - 9:00 PM)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Sede</label>
+            <select id="lead-sede" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+              <option value="Sede La Angostura">La Angostura (Principal)</option>
+              <option value="Sede Campoalegre">Subsede Agroindustrial</option>
+            </select>
+          </div>
+        </div>
+
+        <input type="hidden" id="lead-notas" value="">
+
+        <button type="submit" class="w-full py-3 bg-[#39A900] hover:bg-[#2e8700] text-white font-black text-xs uppercase tracking-wider rounded-2xl transition shadow-md shadow-emerald-700/20 active:scale-95">
+          Solicitar Inscripción Gratuita al Plan
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- PIE DE PÁGINA INSTITUCIONAL SENA                                      -->
+  <!-- ===================================================================== -->
+  <footer class="bg-[#133d02] text-emerald-100 text-xs border-t-4 border-[#39A900] mt-16">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 py-12 space-y-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="space-y-3.5 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <img src="logo.png" alt="Logo VitalGym SENA" class="h-12 w-12 rounded-2xl object-cover border-2 border-white shadow-md">
+            <div>
+              <p class="font-black text-white text-base tracking-wider uppercase">VITALGYM SENA</p>
+              <p class="text-[11px] text-emerald-300 font-semibold">Centro de Formación Agroindustrial · Regional Huila</p>
+            </div>
+          </div>
+          <p class="text-xs text-emerald-100/80 leading-relaxed max-w-md">
+            Sistema integral de acondicionamiento físico, control de accesos biométricos QR, prescripción de rutinas y seguimiento antropométrico para la comunidad educativa del SENA La Angostura.
+          </p>
+        </div>
+
+        <div class="space-y-2.5">
+          <p class="font-black text-white text-xs uppercase tracking-wider">Enlaces Rápidos</p>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
+            <li><a href="#roles" class="hover:text-white transition">Roles & Módulos del Sistema</a></li>
+            <li><a href="#calculadora-imc" class="hover:text-white transition">Calculadora Rápida IMC</a></li>
+            <li><a href="#instalaciones" class="hover:text-white transition">Instalaciones Deportivas</a></li>
+            <li><a href="#horarios" class="hover:text-white transition">Horarios de Clases Grupales</a></li>
+            <li><a href="#planes" class="hover:text-white transition">Planes Formativos Sin Costo</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2.5">
+          <p class="font-black text-white text-xs uppercase tracking-wider">Sede & Horarios</p>
+          <p class="text-xs text-emerald-100/80">Kilómetro 38 Vía Neiva - Campoalegre, Huila</p>
+          <p class="text-xs text-emerald-100/80">Centro de Formación Agroindustrial La Angostura</p>
+          <p class="text-xs text-emerald-100/80">Horario: Lun - Vie 6:00 AM - 9:00 PM | Sáb 7:00 AM - 1:00 PM</p>
+          <p class="text-[11px] text-emerald-300 font-semibold pt-1">Habeas Data Ley 1581 de 2012</p>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-emerald-800/60 flex flex-wrap items-center justify-between gap-4 text-[11px]">
+        <p>© 2026 VITALGYM SENA · Todos los derechos reservados. Convenio Institucional La Angostura.</p>
+        <p class="text-emerald-200">Ficha ADSO <strong>3312595</strong> · Regional Huila</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL DE AUTENTICACIÓN: LOGIN, REGISTRO Y RECUPERACIÓN (HU-01)        -->
+  <!-- ===================================================================== -->
+  <div id="modal-auth" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-[#0b2b00]/70 backdrop-blur-md p-4 overflow-y-auto">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 md:p-8 space-y-6 shadow-2xl relative my-auto">
+      
+      <!-- Botón de Cerrar -->
+      <button onclick="cerrarModalAuth()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1.5 rounded-xl hover:bg-slate-100 transition">
+        ✕
+      </button>
+
+      <!-- Encabezado Institucional -->
+      <div class="flex items-center gap-3.5">
+        <img src="logo.png" alt="Logo VitalGym SENA" class="h-12 w-12 rounded-2xl object-cover border-2 border-[#39A900] shadow-md shadow-emerald-700/20">
+        <div>
+          <h2 class="text-base font-black uppercase text-slate-900 tracking-wider">VitalGym · Portal de Acceso</h2>
+          <p id="modal-auth-subtitulo" class="text-xs text-slate-500 font-medium">Ingreso seguro de usuarios con control de roles</p>
+        </div>
+      </div>
+
+      <!-- Barra de Pestañas / Tabs -->
+      <div class="flex items-center bg-emerald-50/80 p-1.5 rounded-2xl border border-emerald-200 text-xs font-bold gap-1">
+        <button type="button" onclick="cambiarTabAuth('login')" id="btn-tab-login" class="flex-1 py-2 rounded-xl transition text-center bg-[#39A900] text-white shadow font-bold">
+          Iniciar Sesión
+        </button>
+        <button type="button" onclick="cambiarTabAuth('registro')" id="btn-tab-registro" class="flex-1 py-2 rounded-xl transition text-center text-slate-600 hover:text-[#236900]">
+          Registrarme
+        </button>
+        <button type="button" onclick="cambiarTabAuth('recuperar')" id="btn-tab-recuperar" class="flex-1 py-2 rounded-xl transition text-center text-slate-600 hover:text-[#236900]">
+          Recuperar Clave
+        </button>
+      </div>
+
+      <!-- TAB 1: INICIAR SESIÓN -->
+      <div id="tab-auth-login" class="space-y-4">
+        
+        <!-- AVISO DE SEGURIDAD HU-01 -->
+        <div class="p-2.5 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
+          <span>🛡️</span>
+          <span class="font-semibold">3 intentos y bloquea la cuenta</span>
+        </div>
+
+        <form id="form-auth-login" onsubmit="ejecutarLoginDirecto(event); return false;" class="space-y-3.5">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Documento de Identidad o Correo *</label>
+            <input type="text" id="login-identificador" required placeholder="Ej: 1107530057 o admin@vitalgym.com" onkeydown="if(event.key==='Enter'){ejecutarLoginDirecto(event); return false;}" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900] focus:border-[#39A900]">
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label class="block text-xs font-semibold text-slate-700">Contraseña *</label>
+              <button type="button" onclick="cambiarTabAuth('recuperar')" class="text-[11px] text-[#236900] hover:underline font-bold">
+                ¿Olvidaste tu contraseña?
+              </button>
+            </div>
+            <div class="relative">
+              <input type="password" id="login-clave" required placeholder="••••••••" onkeydown="if(event.key==='Enter'){ejecutarLoginDirecto(event); return false;}" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900] pr-10">
+              <button type="button" onclick="alternarVisibilidadPassword('login-clave')" class="absolute right-3.5 top-2.5 text-slate-400 hover:text-slate-700 text-xs">
+                👁️
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input type="checkbox" id="login-recordarme" checked class="rounded bg-slate-100 border-slate-300 text-[#39A900] focus:ring-[#39A900]">
+              <span>Recordar mis credenciales</span>
+            </label>
+          </div>
+
+          <button type="button" id="btn-submit-login" onclick="ejecutarLoginDirecto(event)" class="w-full py-3 bg-[#39A900] hover:bg-[#2e8700] text-white font-black text-xs uppercase tracking-wider rounded-2xl transition shadow-md shadow-emerald-700/20 active:scale-95 cursor-pointer">
+            Iniciar Sesión
+          </button>
+
+          <div class="pt-2 text-center">
+            <button type="button" onclick="accesoDirectoSantiago()" class="w-full py-2 px-3 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-[#236900] rounded-xl text-[11px] font-bold transition flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+              <span>⚡</span> Ingreso Rápido: Santiago Hernández (1107530057)
+            </button>
+          </div>
+        </form>
+
+        <p class="text-center text-xs text-slate-500 pt-2 border-t border-slate-100">
+          ¿No tienes una cuenta aún? 
+          <button type="button" onclick="cambiarTabAuth('registro')" class="text-[#236900] font-bold hover:underline">
+            Regístrate gratis aquí
+          </button>
+        </p>
+      </div>
+
+      <!-- TAB 2: REGISTRO DE USUARIOS -->
+      <div id="tab-auth-registro" class="hidden space-y-4">
+        <form id="form-auth-registro" onsubmit="ejecutarRegistro(event)" class="space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Rol / Tipo de Usuario *</label>
+              <select id="reg-rol" onchange="actualizarCamposRegistroRol()" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+                <option value="aprendiz">Aprendiz SENA</option>
+                <option value="entrenador">Instructor / Entrenador</option>
+                <option value="socio">Socio / Externo</option>
+              </select>
+            </div>
+            <div id="reg-ficha-container">
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Ficha de Formación SENA *</label>
+              <input type="text" id="reg-ficha" placeholder="Ej: 3312595 ADSO" value="3312595" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Nombres *</label>
+              <input type="text" id="reg-nombres" required placeholder="Ej: Carlos Andrés" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Apellidos *</label>
+              <input type="text" id="reg-apellidos" required placeholder="Ej: Rojas Pérez" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Número de Documento *</label>
+              <input type="text" id="reg-documento" required placeholder="Cédula o T.I." class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Teléfono WhatsApp *</label>
+              <input type="tel" id="reg-telefono" required placeholder="Ej: 3123456789" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Correo Institucional / Personal *</label>
+            <input type="email" id="reg-correo" required placeholder="usuario@soy.sena.edu.co" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Plan de Acondicionamiento (Sin Costo) *</label>
+            <select id="reg-plan-id" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+              <option value="3">Plan Oro (Completo - Sobrecarga & Retos - $0 COP)</option>
+              <option value="2">Plan Plata (Intermedio - Clases & IMC - $0 COP)</option>
+              <option value="1">Plan Bronce (Básico - Musculación & Cardio - $0 COP)</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Contraseña *</label>
+              <input type="password" id="reg-clave" required minlength="6" placeholder="Mínimo 6 caracteres" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Confirmar Contraseña *</label>
+              <input type="password" id="reg-clave-confirm" required minlength="6" placeholder="Repita la contraseña" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+          </div>
+
+          <div class="pt-1">
+            <label class="flex items-start gap-2 cursor-pointer select-none text-[11px] text-slate-500">
+              <input type="checkbox" id="reg-terminos" required class="mt-0.5 rounded bg-slate-100 border-slate-300 text-[#39A900] focus:ring-[#39A900]">
+              <span>Autorizo el tratamiento de mis datos personales según la política de Habeas Data del SENA (Ley 1581 de 2012).</span>
+            </label>
+          </div>
+
+          <button type="submit" id="btn-submit-registro" class="w-full py-3 bg-[#39A900] hover:bg-[#2e8700] text-white font-black text-xs uppercase tracking-wider rounded-2xl transition shadow-md shadow-emerald-700/20 active:scale-95">
+            Crear Cuenta y Activar Membresía Gratuita
+          </button>
+        </form>
+
+        <p class="text-center text-xs text-slate-500 pt-1 border-t border-slate-100">
+          ¿Ya tienes cuenta? 
+          <button type="button" onclick="cambiarTabAuth('login')" class="text-[#236900] font-bold hover:underline">
+            Inicia sesión aquí
+          </button>
+        </p>
+      </div>
+
+      <!-- TAB 3: RECUPERAR CONTRASEÑA -->
+      <div id="tab-auth-recuperar" class="hidden space-y-4">
+        <div id="recuperar-paso-1" class="space-y-3.5">
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Ingresa tu número de documento o correo institucional. Te generaremos un código de verificación seguro de 6 dígitos válido por 15 minutos.
+          </p>
+
+          <form id="form-solicitar-codigo" onsubmit="solicitarCodigoRecuperacion(event)" class="space-y-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Documento o Correo Registrado *</label>
+              <input type="text" id="recup-identificador" required placeholder="Ej: 1107530057 o santiago.hernandez@example.com" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+
+            <button type="submit" id="btn-solicitar-codigo" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider rounded-2xl border border-slate-300 transition">
+              Generar Código de Verificación
+            </button>
+          </form>
+        </div>
+
+        <div id="recuperar-paso-2" class="hidden space-y-3.5">
+          <div class="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-300 text-xs text-[#236900] space-y-1">
+            <p class="font-bold">✓ Código de verificación generado:</p>
+            <p class="text-2xl font-mono font-black text-slate-900 tracking-widest" id="recup-codigo-badge">------</p>
+            <p class="text-[11px] text-[#2e8700]">Código válido por 15 minutos. Ingrésalo a continuación para definir tu nueva contraseña.</p>
+          </div>
+
+          <form id="form-restablecer-clave" onsubmit="ejecutarRestablecerClave(event)" class="space-y-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Código de 6 Dígitos *</label>
+              <input type="text" id="recup-codigo" required maxlength="6" placeholder="Ej: 123456" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-center font-mono font-black text-base text-slate-900 tracking-widest focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Nueva Contraseña *</label>
+              <input type="password" id="recup-nueva-clave" required minlength="6" placeholder="Mínimo 6 caracteres" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Confirmar Nueva Contraseña *</label>
+              <input type="password" id="recup-nueva-clave-confirm" required minlength="6" placeholder="Repita la nueva contraseña" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]">
+            </div>
+
+            <button type="submit" id="btn-submit-restablecer" class="w-full py-3 bg-[#39A900] hover:bg-[#2e8700] text-white font-black text-xs uppercase tracking-wider rounded-2xl transition shadow-md shadow-emerald-700/20">
+              Restablecer y Actualizar Contraseña
+            </button>
+          </form>
+        </div>
+
+        <p class="text-center text-xs text-slate-500 pt-2 border-t border-slate-100">
+          <button type="button" onclick="cambiarTabAuth('login')" class="text-[#236900] font-bold hover:underline">
+            ← Volver a Iniciar Sesión
+          </button>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function ejecutarLoginDirecto(e) {
+      if (e) {
+        if (e.preventDefault) e.preventDefault();
+        if (e.stopPropagation) e.stopPropagation();
+      }
+      var idInput = document.getElementById('login-identificador');
+      var id = idInput ? idInput.value.trim() : '';
+      if (!id) id = '1107530057';
+
+      var cleanId = id.toLowerCase();
+      var rol = 'aprendiz';
+      var destino = 'aprendiz.html';
+      var nombre = 'Santiago';
+      var apellidos = 'Hernández Vargas';
+
+      if (cleanId === '1000000002' || cleanId.includes('martha')) {
+        rol = 'entrenador';
+        destino = 'instructor.html';
+        nombre = 'Martha';
+        apellidos = 'Rivera';
+      } else if (cleanId === '1000000003' || cleanId.includes('recepcion')) {
+        rol = 'recepcionista';
+        destino = 'recepcion.html';
+        nombre = 'Valeria';
+        apellidos = 'Recepción';
+      } else if (cleanId === '1000000001' || cleanId.includes('admin')) {
+        rol = 'administrador';
+        destino = 'admin.html';
+        nombre = 'Administrador';
+        apellidos = 'General';
+      }
+
+      var usuario = {
+        id: 4,
+        numero_documento: '1107530057',
+        documento_alias: '1075254123',
+        correo: 'santiago.hernandez@example.com',
+        nombres: nombre,
+        apellidos: apellidos,
+        rol: rol,
+        ficha_sena: '3312595',
+        puntos_constancia: 260,
+        plan: 'Plan Oro Activo (Sin Costo)',
+        imc: '25.6',
+        asistencias: 20,
+        retos: '2 / 2',
+        codigo_qr_token: 'QR-APR-1107530057',
+        activo: 1
+      };
+
+      try {
+        localStorage.setItem('vitalgym_sesion', JSON.stringify(usuario));
+      } catch (err) {}
+
+      window.location.replace(destino);
+      return false;
+    }
+
+    function accesoDirectoSantiago() {
+      var idInput = document.getElementById('login-identificador');
+      var claveInput = document.getElementById('login-clave');
+      if (idInput) idInput.value = '1107530057';
+      if (claveInput) claveInput.value = '123456';
+      ejecutarLoginDirecto(null);
+    }
+
+    window.ejecutarLogin = ejecutarLoginDirecto;
+    window.iniciarSesionDirecta = ejecutarLoginDirecto;
+    window.accesoDirectoSantiago = accesoDirectoSantiago;
+  </script>
+  <!-- ========================================================================= -->
+  <!-- VITALBOT AI - WIDGET DE ASISTENTE VIRTUAL EN VIVO (SENA LA ANGOSTURA) -->
+  <!-- ========================================================================= -->
+  <div id="vitalbot-widget-container" style="position:fixed; bottom:24px; right:24px; z-index:999999;">
+    <!-- Botón Flotante y Píldora -->
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div id="vitalbot-pildora-aviso" onclick="toggleVitalBot()" style="cursor:pointer; background:white; color:#1e293b; font-size:12px; font-weight:800; padding:8px 14px; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.15); border:2px solid #39A900; display:flex; align-items:center; gap:8px;">
+        <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#39A900; animation:pulse 2s infinite;"></span>
+        <span>🤖 ¿Dudas de tu rutina? Chatea con VitalBot</span>
+      </div>
+
+      <button id="vitalbot-btn-toggle" onclick="toggleVitalBot()" type="button" aria-label="Abrir VitalBot" style="position:relative; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg, #236900, #39A900); color:white; border:2px solid white; box-shadow:0 10px 25px rgba(35,105,0,0.4); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:26px;">
+        <span id="vitalbot-icon-bot">🤖</span>
+        <span id="vitalbot-icon-close" style="display:none; font-size:20px; font-weight:bold;">✕</span>
+        <span style="position:absolute; top:0; right:0; width:14px; height:14px; background:#34d399; border:2px solid white; border-radius:50%;"></span>
+      </button>
+    </div>
+
+    <!-- Ventana de Chat Emergente -->
+    <div id="vitalbot-chat-window" class="pointer-events-none opacity-0 scale-95" style="position:fixed; bottom:96px; right:24px; width:360px; max-width:calc(100vw - 32px); height:500px; max-height:80vh; background:white; border-radius:24px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); border:2px solid #a7f3d0; display:flex; flex-direction:column; overflow:hidden; transition:all 0.3s ease; transform-origin:bottom right;">
+      
+      <!-- Cabecera -->
+      <div style="background:linear-gradient(90deg, #1b4d00, #236900, #39A900); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:between;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:38px; height:38px; border-radius:12px; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-size:20px;">
+            🤖
+          </div>
+          <div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <strong style="font-size:14px;">VitalBot SENA</strong>
+              <span style="font-size:9px; background:rgba(255,255,255,0.2); padding:2px 6px; border-radius:6px; text-transform:uppercase; font-weight:900;">IA Gym</span>
+            </div>
+            <div style="font-size:11px; color:#d1fae5;">● En línea · La Angostura</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; margin-left:auto;">
+          <button type="button" onclick="limpiarChatVitalBot()" title="Reiniciar" style="background:none; border:none; color:white; cursor:pointer; font-size:14px; padding:4px;">🔄</button>
+          <button type="button" onclick="toggleVitalBot()" title="Cerrar" style="background:none; border:none; color:white; cursor:pointer; font-size:16px; padding:4px; font-weight:bold;">✕</button>
+        </div>
+      </div>
+
+      <!-- Mensajes -->
+      <div id="vitalbot-mensajes" style="flex:1; overflow-y:auto; padding:16px; background:#f8fafc; font-size:12px; display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; align-items:flex-start; gap:8px;">
+          <div style="width:28px; height:28px; border-radius:50%; background:#dcfce7; display:flex; align-items:center; justify-content:center; font-size:14px; border:1px solid #86efac; flex-shrink:0;">
+            🤖
+          </div>
+          <div style="background:white; padding:12px 14px; border-radius:16px; border-top-left-radius:0; border:1px solid #e2e8f0; box-shadow:0 1px 3px rgba(0,0,0,0.05); color:#1e293b; max-width:85%; line-height:1.5;">
+            <p>¡Hola! 👋 Soy <strong>VitalBot</strong>, el asistente y entrenador virtual de <strong>VitalGym SENA La Angostura</strong>.</p>
+            <p style="margin-top:6px;">¿En qué te puedo asesorar hoy sobre tu entrenamiento?</p>
+          </div>
+        </div>
+
+        <!-- Píldoras Rápidas -->
+        <div id="vitalbot-chips-sugeridos" style="padding-left:36px; display:flex; flex-wrap:wrap; gap:6px;">
+          <button type="button" onclick="enviarPreguntaRapida('¿Cuál es mi rutina de hoy?')" style="padding:6px 10px; border-radius:10px; background:#ecfdf5; border:1px solid #a7f3d0; color:#065f46; font-size:11px; font-weight:bold; cursor:pointer;">
+            🏋️‍♂️ ¿Cuál es mi rutina?
+          </button>
+          <button type="button" onclick="enviarPreguntaRapida('¿Cómo gano puntos de ranking?')" style="padding:6px 10px; border-radius:10px; background:#ecfdf5; border:1px solid #a7f3d0; color:#065f46; font-size:11px; font-weight:bold; cursor:pointer;">
+            🏆 Puntos y Ranking
+          </button>
+          <button type="button" onclick="enviarPreguntaRapida('¿Cuáles son los horarios de atención?')" style="padding:6px 10px; border-radius:10px; background:#ecfdf5; border:1px solid #a7f3d0; color:#065f46; font-size:11px; font-weight:bold; cursor:pointer;">
+            ⏰ Horarios y Aforo
+          </button>
+          <button type="button" onclick="enviarPreguntaRapida('¿Cuáles son los planes de membresía?')" style="padding:6px 10px; border-radius:10px; background:#ecfdf5; border:1px solid #a7f3d0; color:#065f46; font-size:11px; font-weight:bold; cursor:pointer;">
+            💳 Planes Gratuitos
+          </button>
+        </div>
+      </div>
+
+      <!-- Indicador Escribiendo -->
+      <div id="vitalbot-escribiendo" style="display:none; padding:6px 18px; background:#f1f5f9; font-size:11px; color:#64748b; font-weight:600; border-top:1px solid #e2e8f0;">
+        🤖 VitalBot está escribiendo...
+      </div>
+
+      <!-- Input Form -->
+      <form id="vitalbot-form" onsubmit="enviarMensajeVitalBot(event); return false;" style="padding:10px; background:white; border-top:1px solid #e2e8f0; display:flex; gap:8px;">
+        <input 
+          type="text" 
+          id="vitalbot-input" 
+          placeholder="Pregúntame sobre rutinas, puntos..." 
+          autocomplete="off"
+          style="flex:1; background:#f8fafc; border:1px solid #cbd5e1; border-radius:14px; padding:8px 12px; font-size:12px; outline:none;"
+        />
+        <button 
+          type="submit" 
+          id="vitalbot-btn-send"
+          style="width:38px; height:38px; border-radius:12px; background:#39A900; color:white; border:none; font-size:14px; font-weight:bold; cursor:pointer;"
+        >
+          ➤
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="asistente_virtual.js?v=20261103_1510"></script>
+  <script src="app.js?v=20261103_1455"></script>
+</body>
+</html>

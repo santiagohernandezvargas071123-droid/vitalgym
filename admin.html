@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-50 text-slate-800">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Administrador - VITALGYM | SENA La Angostura</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            sena: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#39A900', // Verde SENA Oficial
+              600: '#2e8700',
+              700: '#236900',
+              800: '#1b4d00',
+              900: '#0b2b00',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #f8fafc; }
+    ::-webkit-scrollbar-thumb { background: #39A900; border-radius: 6px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2e8700; }
+  </style>
+</head>
+<body class="min-h-full flex flex-col font-sans antialiased text-slate-800 bg-slate-50 select-none">
+
+  <!-- Franja superior institucional SENA -->
+  <div class="h-1.5 bg-gradient-to-r from-[#236900] via-[#39A900] to-emerald-400 w-full sticky top-0 z-50"></div>
+
+  <!-- ===================================================================== -->
+  <!-- BARRA DE NAVEGACIÓN - MÓDULO ADMINISTRADOR                            -->
+  <!-- ===================================================================== -->
+  <header class="border-b border-slate-200 bg-white/95 backdrop-blur sticky top-1.5 z-40 px-4 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="group flex items-center gap-2 active:scale-95 transition-transform" title="Volver al inicio">
+        <img src="logo.png" alt="Logo VitalGym SENA" class="h-10 w-10 rounded-xl object-cover shadow-sm border border-emerald-300">
+      </a>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-base font-black tracking-wider uppercase text-slate-900">VITALGYM</h1>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-[#236900] border border-emerald-200">ADMINISTRADOR</span>
+        </div>
+        <p class="text-[11px] text-slate-500 font-medium">Centro de Formación Agroindustrial · Sede La Angostura</p>
+      </div>
+    </div>
+
+    <!-- Menú del Administrador -->
+    <nav class="hidden md:flex items-center gap-1 bg-slate-100 p-1.5 rounded-2xl border border-slate-200 text-xs font-bold shadow-inner">
+      <span class="px-3.5 py-1.5 rounded-xl bg-[#39A900] text-white shadow-sm flex items-center gap-1.5">
+        <span>📊</span> Centro de Gestión & Control
+      </span>
+      <a href="index.html" class="px-3 py-1.5 rounded-xl text-slate-600 hover:text-[#39A900] hover:bg-white transition flex items-center gap-1.5">
+        <span>🌐</span> Portal Principal
+      </a>
+    </nav>
+
+    <!-- Perfil del Administrador -->
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2.5 bg-emerald-50/80 border border-emerald-200 px-3.5 py-1.5 rounded-2xl shadow-sm">
+        <div class="h-8 w-8 rounded-full bg-[#39A900] text-white font-black text-xs flex items-center justify-center shadow" id="auth-admin-avatar">
+          AD
+        </div>
+        <div class="text-left hidden sm:block">
+          <p class="text-xs font-bold text-slate-900 leading-tight" id="auth-admin-name">Administrador General</p>
+          <span class="text-[10px] text-[#236900] font-semibold" id="auth-admin-role">Coordinación La Angostura</span>
+        </div>
+        <a href="index.html" onclick="cerrarSesion()" title="Cerrar Sesión" class="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition ml-1">
+          <span class="text-sm">🚪</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- CONTENIDO PRINCIPAL: DASHBOARD DEL ADMINISTRADOR                     -->
+  <!-- ===================================================================== -->
+  <main class="flex-1 w-full max-w-7xl mx-auto p-4 md:p-6 lg:p-8 space-y-6">
+
+    <!-- Encabezado Administrador -->
+    <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+          <span class="text-[#39A900]">📊</span> Centro de Gestión y Control Institucional (HU-06, HU-08)
+        </h2>
+        <p class="text-xs text-slate-500">Supervisión integral de maquinaria, seguridad de acceso, órdenes técnicas y reportes oficiales SENA.</p>
+      </div>
+      <button onclick="imprimirReporteSena()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl border border-slate-300 transition flex items-center gap-1.5 shadow-sm">
+        <span>🖨️</span> Imprimir Reporte Mensual SENA
+      </button>
+    </div>
+
+    <!-- KPIs Rápidos Globales del Gimnasio -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-500">Usuarios Registrados</span>
+          <p class="text-2xl font-black text-slate-900 mt-1">128</p>
+        </div>
+        <span class="p-3 bg-slate-100 text-slate-700 rounded-xl text-lg">👥</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-500">Equipos Operativos</span>
+          <p class="text-2xl font-black text-[#2e8700] mt-1">42 <span class="text-xs text-slate-400 font-normal">/ 48</span></p>
+        </div>
+        <span class="p-3 bg-emerald-50 text-[#39A900] border border-emerald-200 rounded-xl text-lg">✓</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-500">En Mantenimiento</span>
+          <p class="text-2xl font-black text-amber-600 mt-1">4</p>
+        </div>
+        <span class="p-3 bg-amber-50 text-amber-600 border border-amber-200 rounded-xl text-lg">⚠️</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-500">Fuera de Servicio</span>
+          <p class="text-2xl font-black text-rose-600 mt-1">2</p>
+        </div>
+        <span class="p-3 bg-rose-50 text-rose-600 border border-rose-200 rounded-xl text-lg">🛑</span>
+      </div>
+    </div>
+
+    <!-- Barra de Pestañas del Administrador -->
+    <div class="flex items-center bg-white p-1.5 rounded-2xl border border-slate-200 gap-2 shadow-sm text-xs font-bold overflow-x-auto">
+      <button onclick="cambiarTabAdmin('inventario')" id="btn-tab-admin-inventario" class="px-4 py-2 rounded-xl bg-[#39A900] text-white shadow transition">
+        🏋️ Inventario de Maquinaria
+      </button>
+      <button onclick="cambiarTabAdmin('movimientos')" id="btn-tab-admin-movimientos" class="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+        🚚 Movimientos de Equipos (Módulo 4)
+      </button>
+      <button onclick="cambiarTabAdmin('mantenimientos')" id="btn-tab-admin-mantenimientos" class="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+        🔧 Bitácora de Mantenimientos (HU-06)
+      </button>
+      <button onclick="cambiarTabAdmin('auditoria')" id="btn-tab-admin-auditoria" class="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+        🛡️ Auditoría & Seguridad (HU-01)
+      </button>
+      <button onclick="cambiarTabAdmin('reporte')" id="btn-tab-admin-reporte" class="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+        📄 Reporte Mensual SENA
+      </button>
+    </div>
+
+    <!-- TAB 1 ADMIN: INVENTARIO DE MAQUINARIA -->
+    <div id="tab-admin-inventario" class="space-y-6">
+      <!-- Panel de Alertas Críticas (HU-06) -->
+      <div class="bg-white border border-slate-200 rounded-3xl p-5 space-y-3 shadow-md">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-rose-500 animate-ping"></span>
+            <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Alertas Activas de Maquinaria (HU-06)</h3>
+          </div>
+          <span class="text-[11px] text-slate-500 font-semibold">Próximos 7 días</span>
+        </div>
+        <div id="contenedor-alertas-mantenimiento" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <!-- Inyectado por app.js -->
+        </div>
+      </div>
+
+      <!-- Tabla de Inventario de Equipos y Filtros -->
+      <div class="bg-white border border-slate-200 rounded-3xl shadow-md space-y-4 p-5">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 pb-3 border-b border-slate-100">
+          <div class="w-full md:w-80 relative">
+            <input 
+              type="text" 
+              placeholder="Buscar máquina por nombre o tag..." 
+              oninput="filtrarEquiposTexto(this.value)"
+              class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-4 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]"
+            >
+            <span class="absolute left-3 top-2.5 text-xs text-slate-400">🔍</span>
+          </div>
+
+          <div class="flex items-center gap-3 w-full md:w-auto text-xs">
+            <select onchange="filtrarEquiposZona(this.value)" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-700">
+              <option value="TODAS">Todas las Zonas</option>
+              <option value="Musculación">Musculación</option>
+              <option value="Cardio">Cardio</option>
+              <option value="Spinning">Spinning</option>
+              <option value="Peso Libre">Peso Libre</option>
+            </select>
+            <select onchange="filtrarEquiposEstado(this.value)" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-700">
+              <option value="TODOS">Todos los Estados</option>
+              <option value="operativo">Operativo</option>
+              <option value="requiere_mantenimiento">Requiere Mantenimiento</option>
+              <option value="fuera_de_servicio">Fuera de Servicio</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 text-[10px] text-slate-500 uppercase tracking-wider bg-slate-50">
+                <th class="px-4 py-3">Tag / Código</th>
+                <th class="px-4 py-3">Máquina / Modelo</th>
+                <th class="px-4 py-3">Ubicación</th>
+                <th class="px-4 py-3">Estado</th>
+                <th class="px-4 py-3 text-right">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpo-tabla-equipos" class="divide-y divide-slate-100">
+              <!-- Inyectado por app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2 ADMIN: MOVIMIENTOS DE EQUIPOS (MÓDULO 4) -->
+    <div id="tab-admin-movimientos" class="hidden bg-white border border-slate-200 rounded-3xl p-6 shadow-md space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div>
+          <h3 class="text-sm font-black uppercase text-slate-900">Registro de Movimientos de Equipos y Traslados (Módulo 4)</h3>
+          <p class="text-xs text-slate-500">Trazabilidad de traslados entre sedes SENA, altas por compra y bajas por obsolescencia con número de acta.</p>
+        </div>
+        <button onclick="alert('Función de registrar nuevo traslado institucional activa en formato SENA.')" class="px-3.5 py-1.5 bg-[#39A900] text-white text-xs font-bold rounded-xl shadow-sm">
+          + Nuevo Movimiento
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-slate-200 text-[10px] text-slate-500 uppercase tracking-wider bg-slate-50">
+              <th class="px-4 py-2.5">Código Activo</th>
+              <th class="px-4 py-2.5">Tipo Movimiento</th>
+              <th class="px-4 py-2.5">Origen → Destino</th>
+              <th class="px-4 py-2.5">Responsable</th>
+              <th class="px-4 py-2.5">Acta SENA</th>
+              <th class="px-4 py-2.5">Fecha</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3 font-mono font-bold text-[#236900]">EQ-SP-008</td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-bold">Traslado Sede</span></td>
+              <td class="px-4 py-3">Sede Principal → Subsede Campoalegre</td>
+              <td class="px-4 py-3 font-medium">Coordinación de Bienestar</td>
+              <td class="px-4 py-3 font-mono font-semibold">ACTA-2026-089</td>
+              <td class="px-4 py-3 text-slate-500">2026-10-15</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3 font-mono font-bold text-[#236900]">EQ-MS-001</td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-[#236900] border border-emerald-200 font-bold">Ingreso / Compra</span></td>
+              <td class="px-4 py-3">Proveedor Especializado → Sede La Angostura</td>
+              <td class="px-4 py-3 font-medium">Almacén Central SENA</td>
+              <td class="px-4 py-3 font-mono font-semibold">ORD-COM-3312</td>
+              <td class="px-4 py-3 text-slate-500">2026-08-20</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3 font-mono font-bold text-[#236900]">EQ-CD-003</td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 font-bold">Envío a Taller</span></td>
+              <td class="px-4 py-3">Cardio → Taller Técnico Autorizado</td>
+              <td class="px-4 py-3 font-medium">Mantenimiento Sede</td>
+              <td class="px-4 py-3 font-mono font-semibold">REM-TALLER-042</td>
+              <td class="px-4 py-3 text-slate-500">2026-10-28</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3 ADMIN: BITÁCORA DE MANTENIMIENTOS (HU-06) -->
+    <div id="tab-admin-mantenimientos" class="hidden bg-white border border-slate-200 rounded-3xl p-6 shadow-md space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div>
+          <h3 class="text-sm font-black uppercase text-slate-900">Bitácora Oficial de Mantenimiento (HU-06)</h3>
+          <p class="text-xs text-slate-500">Historial de intervenciones preventivas y correctivas a la maquinaria del gimnasio.</p>
+        </div>
+        <span class="text-xs font-bold text-slate-600">Presupuesto Ejecutado: <strong>$0 COP (Convenio)</strong></span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-slate-200 text-[10px] text-slate-500 uppercase tracking-wider bg-slate-50">
+              <th class="px-4 py-2.5">Máquina</th>
+              <th class="px-4 py-2.5">Tipo</th>
+              <th class="px-4 py-2.5">Descripción de Falla / Trabajo</th>
+              <th class="px-4 py-2.5">Técnico / Proveedor</th>
+              <th class="px-4 py-2.5">Estado</th>
+              <th class="px-4 py-2.5">Fecha</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3 font-bold text-slate-900">Caminadora Eléctrica T70 (EQ-CD-003)</td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-bold">Correctivo</span></td>
+              <td class="px-4 py-3">Reemplazo de banda de tracción y calibración de rodillos.</td>
+              <td class="px-4 py-3 font-medium">Servicio Técnico Matrix SAS</td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 font-semibold">En Proceso</span></td>
+              <td class="px-4 py-3 text-slate-500">2026-10-28</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3 font-bold text-slate-900">Polea Dual Cruzada (EQ-MS-012)</td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 font-bold">Preventivo</span></td>
+              <td class="px-4 py-3">Lubricación con silicona industrial y ajuste de guayas de acero.</td>
+              <td class="px-4 py-3 font-medium">Equipo Mantenimiento SENA</td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-[#236900] border border-emerald-200 font-semibold">Completado</span></td>
+              <td class="px-4 py-3 text-slate-500">2026-10-20</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4 ADMIN: AUDITORÍA Y SEGURIDAD (HU-01) -->
+    <div id="tab-admin-auditoria" class="hidden bg-white border border-slate-200 rounded-3xl p-6 shadow-md space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div>
+          <h3 class="text-sm font-black uppercase text-slate-900">Auditoría de Intentos y Bloqueos de Cuenta (HU-01)</h3>
+          <p class="text-xs text-slate-500">Monitoreo de seguridad: Bloqueo automático por 15 minutos tras 3 intentos fallidos consecutivos de contraseña.</p>
+        </div>
+        <span class="text-xs font-bold px-3 py-1 bg-amber-50 text-amber-800 rounded-full border border-amber-200">Regla Activa: 3 Fallos = Bloqueo</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-slate-200 text-[10px] text-slate-500 uppercase tracking-wider bg-slate-50">
+              <th class="px-4 py-2.5">Documento / Correo</th>
+              <th class="px-4 py-2.5">Usuario</th>
+              <th class="px-4 py-2.5">Intentos Fallidos</th>
+              <th class="px-4 py-2.5">Estado de Cuenta</th>
+              <th class="px-4 py-2.5">Última Actividad</th>
+              <th class="px-4 py-2.5 text-right">Acción</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3 font-mono font-bold text-slate-800">1107530057</td>
+              <td class="px-4 py-3 font-medium text-slate-900">Santiago Hernández Vargas</td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-[#236900] font-bold">0 intentos</span></td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-[#236900] border border-emerald-200 font-semibold">Normal / Desbloqueado</span></td>
+              <td class="px-4 py-3 text-slate-500">Hoy, 10:15 AM</td>
+              <td class="px-4 py-3 text-right">
+                <span class="text-slate-400 text-[11px]">Sin restricción</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3 font-mono font-bold text-slate-800">1012345678</td>
+              <td class="px-4 py-3 font-medium text-slate-900">Germán Mouse</td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 font-bold">3 intentos fallidos</span></td>
+              <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-semibold">🔒 Bloqueado por 15 min</span></td>
+              <td class="px-4 py-3 text-slate-500">Hoy, 09:40 AM</td>
+              <td class="px-4 py-3 text-right">
+                <button onclick="desbloquearUsuarioAdmin('1012345678')" class="text-xs px-2.5 py-1 bg-[#39A900] hover:bg-[#2e8700] text-white font-bold rounded-lg shadow-sm transition">
+                  Desbloquear Ahora
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 5 ADMIN: REPORTE MENSUAL SENA -->
+    <div id="tab-admin-reporte" class="hidden bg-white border border-slate-200 rounded-3xl p-8 shadow-md space-y-6">
+      <div class="border-b-2 border-[#39A900] pb-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="h-12 w-12 rounded-xl bg-[#39A900] flex items-center justify-center font-black text-white text-lg shadow-md">
+            SENA
+          </div>
+          <div>
+            <h3 class="text-base font-black text-slate-900">SERVICIO NACIONAL DE APRENDIZAJE - SENA</h3>
+            <p class="text-xs text-slate-500">Regional Huila · Centro de Formación Agroindustrial La Angostura</p>
+            <p class="text-[11px] text-[#236900] font-bold">Informe Estadístico Mensual de Uso del Gimnasio Institucional</p>
+          </div>
+        </div>
+        <div class="text-right text-xs text-slate-500">
+          <p>Periodo: <strong>Octubre 2026</strong></p>
+          <p>Ficha Proyecto: <strong>3312595 ADSO</strong></p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl">
+          <span class="text-[10px] uppercase font-bold text-slate-500 block">Total Horas de Entrenamiento</span>
+          <span class="text-2xl font-black text-[#2e8700]">480 Horas</span>
+          <p class="text-[11px] text-slate-500 mt-1">Registradas mediante torniquetes QR</p>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl">
+          <span class="text-[10px] uppercase font-bold text-slate-500 block">Aprendices Beneficiados</span>
+          <span class="text-2xl font-black text-slate-900">92 Aprendices</span>
+          <p class="text-[11px] text-slate-500 mt-1">100% Cobertura gratuita institucional</p>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl">
+          <span class="text-[10px] uppercase font-bold text-slate-500 block">Índice de Adherencia</span>
+          <span class="text-2xl font-black text-purple-700">84.2%</span>
+          <p class="text-[11px] text-slate-500 mt-1">+12% gracias al sistema de puntos y retos</p>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-200 pt-4 flex justify-end">
+        <button onclick="imprimirReporteSena()" class="px-6 py-2.5 bg-[#39A900] hover:bg-[#2e8700] text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-2">
+          <span>🖨️</span> Imprimir Documento Oficial
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal: Reporte de Avería / Mantenimiento (HU-06) -->
+  <div id="modal-mantenimiento" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+    <div class="bg-white border border-slate-200 rounded-3xl p-6 max-w-md w-full space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+        <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider">Reportar Orden Técnica (HU-06)</h3>
+        <button onclick="cerrarModalReporteMantenimiento()" class="text-slate-400 hover:text-slate-700">✕</button>
+      </div>
+
+      <form onsubmit="guardarReporteMantenimiento(event)" class="space-y-3">
+        <input type="hidden" id="maint-equipo-id">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Máquina Seleccionada</label>
+          <input type="text" id="maint-equipo-nombre" readonly class="w-full bg-slate-100 border border-slate-200 rounded-xl px-4 py-2 text-xs text-slate-600 font-medium">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Tipo de Mantenimiento</label>
+          <select id="maint-tipo" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2 text-xs text-slate-800">
+            <option value="correctivo">Correctivo (Máquina averiada fuera de servicio)</option>
+            <option value="preventivo">Preventivo (Ajuste o lubricación programada)</option>
+            <option value="inspeccion">Inspección periódica</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Detalle del Daño o Trabajo *</label>
+          <textarea id="maint-descripcion" required rows="3" placeholder="Describa la falla mecánica o el ajuste requerido..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Técnico / Responsable</label>
+          <input type="text" id="maint-tecnico" value="Servicio Técnico Especializado SAS" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2 text-xs text-slate-900">
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-2">
+          <button type="button" onclick="cerrarModalReporteMantenimiento()" class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl">Cancelar</button>
+          <button type="submit" class="px-5 py-2 bg-[#39A900] hover:bg-[#2e8700] text-white text-xs font-bold rounded-xl transition shadow">Guardar Orden Técnica</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
+
