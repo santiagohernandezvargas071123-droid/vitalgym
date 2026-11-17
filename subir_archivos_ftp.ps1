@@ -2,7 +2,7 @@ $ftpHost = 'ftp://ftpupload.net/htdocs'
 $user = 'if0_43345251'
 $pass = 'WckRNerFpYKdWHt'
 
-$files = @('app.js', 'db.php', 'api.php', 'recepcion.js', 'recepcion.html', 'aprendiz.js', 'aprendiz.html', 'index.html', 'instructor.html', 'instructor.js', 'admin.html', 'admin.js', 'VITALGYM.sql', 'GESTORGYM.sql', 'instalar_bd.php', 'chatbot.js', 'asistente_virtual.js', 'logo_sena.png', 'logo_sena.svg')
+$files = @('app.js', 'db.php', 'api.php', 'recepcion.js', 'recepcion.html', 'aprendiz.js', 'aprendiz.html', 'externo.js', 'externo.html', 'index.html', 'instructor.html', 'instructor.js', 'admin.html', 'admin.js', 'VITALGYM.sql', 'GESTORGYM.sql', 'instalar_bd.php', 'chatbot.js', 'asistente_virtual.js', 'logo_sena.png', 'logo_sena.svg')
 
 foreach ($f in $files) {
     if (Test-Path $f) {

@@ -464,6 +464,7 @@ try {
                     '1000000002' => ['id' => 2, 'numero_documento' => '1000000002', 'correo' => 'martha.rivera@vitalgym.com', 'nombres' => 'Martha', 'apellidos' => 'Rivera', 'rol' => 'entrenador', 'ficha_sena' => 'INSTRUCTORA-SENA', 'puntos_constancia' => 50, 'plan' => 'Instructor Titular SENA', 'codigo_qr_token' => 'QR-TRN-4455667788', 'activo' => 1],
                     '1000000003' => ['id' => 3, 'numero_documento' => '1000000003', 'correo' => 'recepcion@vitalgym.com', 'nombres' => 'Valeria', 'apellidos' => 'Recepción', 'rol' => 'recepcionista', 'ficha_sena' => 'STAFF-ANGOS', 'puntos_constancia' => 0, 'plan' => 'Staff VitalGym', 'codigo_qr_token' => 'QR-REC-3333333333', 'activo' => 1],
                     '1000000001' => ['id' => 1, 'numero_documento' => '1000000001', 'correo' => 'admin@vitalgym.com', 'nombres' => 'Administrador', 'apellidos' => 'General', 'rol' => 'administrador', 'ficha_sena' => 'ADSO-3312595', 'puntos_constancia' => 0, 'plan' => 'Admin VitalGym', 'codigo_qr_token' => 'QR-ADM-9988112233', 'activo' => 1],
+                    '1088990011' => ['id' => 20, 'numero_documento' => '1088990011', 'correo' => 'externo@vitalgym.com', 'nombres' => 'Carlos Andrés', 'apellidos' => 'Rojas Pérez', 'rol' => 'socio', 'tipo_estudiante' => 'externo', 'ficha_sena' => 'EXTERNO-SENA', 'puntos_constancia' => 40, 'plan' => 'Pase Deportivo SENA ($0 COP)', 'codigo_qr_token' => 'QR-EXT-1088990011', 'activo' => 1],
                 ];
 
                 $usuarioEncontrado = null;

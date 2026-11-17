@@ -474,14 +474,14 @@
         </div>
       </div>
 
-      <!-- 3 Tarjetas de Roles -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- 4 Tarjetas de Roles -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 
         <!-- ROL 1: APRENDIZ -->
-        <div onclick="abrirLoginPorRol('aprendiz')" class="cursor-pointer bg-white border border-slate-200/90 hover:border-[#39A900] rounded-3xl p-7 shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+        <div onclick="abrirLoginPorRol('aprendiz')" class="cursor-pointer bg-white border border-slate-200/90 hover:border-[#39A900] rounded-3xl p-6 shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
           <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#236900] to-[#5bce48]"></div>
 
-          <div class="space-y-5">
+          <div class="space-y-4">
             <div class="flex items-center justify-between">
               <div class="h-12 w-12 rounded-2xl bg-[#f2fcf0] border border-[#39A900]/20 text-[#236900] flex items-center justify-center group-hover:bg-[#39A900] group-hover:text-white transition-colors">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
@@ -492,38 +492,83 @@
             </div>
 
             <div>
-              <h3 class="font-display text-xl font-extrabold text-slate-900 group-hover:text-[#236900] transition">Módulo Aprendiz</h3>
+              <h3 class="font-display text-lg font-extrabold text-slate-900 group-hover:text-[#236900] transition">Módulo Aprendiz</h3>
               <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                Espacio personal de entrenamiento. Visualiza tus rutinas asignadas, acumula puntos de constancia y genera tu Carnet QR.
+                Panel de entrenamiento para aprendices SENA. Rutinas progresivas, puntos de constancia y Carnet QR.
               </p>
             </div>
 
-            <ul class="space-y-2.5 pt-4 border-t border-slate-100 text-xs text-slate-600">
-              <li class="flex items-start gap-2.5">
+            <ul class="space-y-2 pt-3 border-t border-slate-100 text-xs text-slate-600">
+              <li class="flex items-start gap-2">
                 <svg class="w-4 h-4 text-[#39A900] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                <span>Rutinas con sobrecarga progresiva (Push-Pull-Legs)</span>
+                <span>Rutinas Push-Pull-Legs y cargas</span>
               </li>
-              <li class="flex items-start gap-2.5">
+              <li class="flex items-start gap-2">
                 <svg class="w-4 h-4 text-[#39A900] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                <span>Carnet digital interactivo con Código QR para torniquete</span>
+                <span>Carnet digital QR para torniquete</span>
               </li>
-              <li class="flex items-start gap-2.5">
+              <li class="flex items-start gap-2">
                 <svg class="w-4 h-4 text-[#39A900] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                <span>Retos deportivos, puntos (+10 Pts) y ranking mensual</span>
+                <span>Retos (+10 Pts) y ranking mensual</span>
               </li>
             </ul>
 
-            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] flex items-center justify-between">
-              <div>
-                <span class="font-bold text-slate-900">Acceso Demo:</span>
-                <span class="text-slate-500 font-mono ml-1">1076903505</span>
-              </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] flex items-center justify-between">
+              <span class="text-slate-600 font-mono">1076903505</span>
               <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-white text-[#236900] border border-emerald-200">ADSO</span>
             </div>
           </div>
 
-          <div class="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold text-[#236900]">
-            <span>Ingresar como Aprendiz</span>
+          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold text-[#236900]">
+            <span>Ingresar Aprendiz</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </div>
+        </div>
+
+        <!-- ROL 2: USUARIO EXTERNO / INTERNO -->
+        <div onclick="abrirLoginPorRol('externo')" class="cursor-pointer bg-white border border-slate-200/90 hover:border-sky-500 rounded-3xl p-6 shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-600 to-[#39A900]"></div>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="h-12 w-12 rounded-2xl bg-sky-50 border border-sky-200 text-sky-700 flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full bg-sky-50 text-sky-700 border border-sky-200">
+                Interno / Externo
+              </span>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg font-extrabold text-slate-900 group-hover:text-sky-700 transition">Usuario Externo</h3>
+              <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                Panel diferenciado para estudiantes internos (internado) y estudiantes externos o comunidad vinculada.
+              </p>
+            </div>
+
+            <ul class="space-y-2 pt-3 border-t border-slate-100 text-xs text-slate-600">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Selector Estudiante Interno vs Externo</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Carnet QR y horarios según modalidad</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Reserva de clases, IMC y rutina guiada</span>
+              </li>
+            </ul>
+
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] flex items-center justify-between">
+              <span class="text-slate-600 font-mono">1088990011</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-white text-sky-700 border border-sky-200">Externo</span>
+            </div>
+          </div>
+
+          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold text-sky-700">
+            <span>Abrir Panel Externo</span>
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </div>
         </div>
@@ -1069,7 +1114,14 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="lead-tipo-estudiante" class="block text-xs font-bold text-slate-700 mb-1.5">¿Eres Estudiante Interno o Externo? *</label>
+            <select id="lead-tipo-estudiante" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]/30 focus:border-[#39A900] transition">
+              <option value="interno">Estudiante Interno (Residente Internado SENA)</option>
+              <option value="externo">Estudiante Externo (Diurno / Comunidad)</option>
+            </select>
+          </div>
           <div>
             <label for="lead-plan" class="block text-xs font-bold text-slate-700 mb-1.5">Plan de Interés ($0) *</label>
             <select id="lead-plan" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]/30 focus:border-[#39A900] transition">
@@ -1078,6 +1130,9 @@
               <option value="Plan Bronce">Plan Bronce ($0 COP)</option>
             </select>
           </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="lead-horario" class="block text-xs font-bold text-slate-700 mb-1.5">Jornada Preferida</label>
             <select id="lead-horario" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]/30 focus:border-[#39A900] transition">
@@ -1252,6 +1307,23 @@
               </div>
             </div>
 
+            <!-- Pregunta: ¿Eres Estudiante Interno o Externo? -->
+            <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold text-slate-800">¿Eres Estudiante Interno o Externo?</label>
+                <span class="text-[10px] font-bold text-[#236900]">SENA La Angostura</span>
+              </div>
+              <input type="hidden" id="login-tipo-estudiante" value="interno">
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" id="btn-login-tipo-interno" onclick="seleccionarTipoEstudianteLogin('interno')" class="py-2 px-3 rounded-xl text-xs font-extrabold border-2 border-[#39A900] bg-emerald-50 text-[#236900] transition cursor-pointer">
+                  Estudiante Interno
+                </button>
+                <button type="button" id="btn-login-tipo-externo" onclick="seleccionarTipoEstudianteLogin('externo')" class="py-2 px-3 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-sky-400 hover:text-sky-700 transition cursor-pointer">
+                  Estudiante Externo
+                </button>
+              </div>
+            </div>
+
             <div class="flex items-center justify-between text-xs text-slate-500">
               <label class="flex items-center gap-2 cursor-pointer select-none">
                 <input type="checkbox" id="login-recordarme" checked class="rounded border-slate-300 text-[#39A900] focus:ring-[#39A900]">
@@ -1264,10 +1336,16 @@
               Iniciar Sesión
             </button>
 
-            <button type="button" onclick="accesoDirectoSantiago()" class="w-full py-2.5 px-3 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-[#236900] rounded-xl text-[11px] font-bold transition flex items-center justify-center gap-2 cursor-pointer">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              <span>Acceso Rápido: Santiago Hernández (1076903505)</span>
-            </button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <button type="button" onclick="accesoDirectoSantiago()" class="py-2.5 px-3 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-[#236900] rounded-xl text-[11px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span>Aprendiz (1076903505)</span>
+              </button>
+              <button type="button" onclick="accesoDirectoExterno()" class="py-2.5 px-3 bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 rounded-xl text-[11px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>Panel Externo</span>
+              </button>
+            </div>
           </form>
 
           <p class="text-center text-xs text-slate-500 pt-2 border-t border-slate-100">
@@ -1286,14 +1364,22 @@
                 <label class="block text-xs font-bold text-slate-700 mb-1">Rol / Tipo de Usuario *</label>
                 <select id="reg-rol" onchange="actualizarCamposRegistroRol()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-800 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]/30 focus:border-[#39A900]">
                   <option value="aprendiz">Aprendiz SENA</option>
+                  <option value="socio">Usuario Externo / Socio</option>
                   <option value="entrenador">Instructor / Entrenador</option>
-                  <option value="socio">Socio / Externo</option>
                 </select>
               </div>
-              <div id="reg-ficha-container">
-                <label class="block text-xs font-bold text-slate-700 mb-1">Ficha SENA *</label>
-                <input type="text" id="reg-ficha" placeholder="Ej: 3312595 ADSO" value="3312595" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]/30 focus:border-[#39A900]">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">¿Eres Estudiante Interno o Externo? *</label>
+                <select id="reg-tipo-estudiante" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-800 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]/30 focus:border-[#39A900]">
+                  <option value="interno">Estudiante Interno (Internado SENA)</option>
+                  <option value="externo">Estudiante Externo (Diurno / Comunidad)</option>
+                </select>
               </div>
+            </div>
+
+            <div id="reg-ficha-container">
+              <label class="block text-xs font-bold text-slate-700 mb-1">Ficha SENA *</label>
+              <input type="text" id="reg-ficha" placeholder="Ej: 3312595 ADSO" value="3312595" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#39A900]/30 focus:border-[#39A900]">
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1414,65 +1500,103 @@
   <!-- SCRIPT DE ACCESO DIRECTO (1076903505 Y SOPORTE MULTI-ROL)             -->
   <!-- ===================================================================== -->
   <script>
+    function seleccionarTipoEstudianteLogin(tipo) {
+      var hidden = document.getElementById('login-tipo-estudiante');
+      var btnInt = document.getElementById('btn-login-tipo-interno');
+      var btnExt = document.getElementById('btn-login-tipo-externo');
+      if (hidden) hidden.value = tipo;
+
+      if (btnInt && btnExt) {
+        if (tipo === 'interno') {
+          btnInt.className = 'py-2 px-3 rounded-xl text-xs font-extrabold border-2 border-[#39A900] bg-emerald-50 text-[#236900] transition cursor-pointer';
+          btnExt.className = 'py-2 px-3 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-sky-400 hover:text-sky-700 transition cursor-pointer';
+        } else {
+          btnExt.className = 'py-2 px-3 rounded-xl text-xs font-extrabold border-2 border-sky-500 bg-sky-50 text-sky-700 transition cursor-pointer';
+          btnInt.className = 'py-2 px-3 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-[#39A900] hover:text-[#236900] transition cursor-pointer';
+        }
+      }
+    }
+
     function ejecutarLoginDirecto(e) {
       if (e) {
         if (e.preventDefault) e.preventDefault();
         if (e.stopPropagation) e.stopPropagation();
       }
       var idInput = document.getElementById('login-identificador');
+      var tipoInput = document.getElementById('login-tipo-estudiante');
       var id = idInput ? idInput.value.trim() : '';
-      if (!id) id = '1076903505';
+      var tipoEstudiante = tipoInput ? tipoInput.value : 'interno';
+      if (!id) id = (tipoEstudiante === 'externo') ? '1088990011' : '1076903505';
 
       var cleanId = id.toLowerCase();
       var rol = 'aprendiz';
       var destino = 'aprendiz.html';
       var nombre = 'Santiago';
       var apellidos = 'Hernández Vargas';
+      var correo = 'santiago.hernandez@example.com';
 
       if (cleanId === '1000000002' || cleanId.includes('martha')) {
         rol = 'entrenador';
         destino = 'instructor.html';
         nombre = 'Martha';
         apellidos = 'Rivera';
+        correo = 'martha.rivera@vitalgym.com';
       } else if (cleanId === '1000000003' || cleanId.includes('recepcion')) {
         rol = 'recepcionista';
         destino = 'recepcion.html';
         nombre = 'Valeria';
         apellidos = 'Recepción';
+        correo = 'recepcion@vitalgym.com';
       } else if (cleanId === '1000000001' || cleanId.includes('admin')) {
         rol = 'administrador';
         destino = 'admin.html';
         nombre = 'Administrador';
         apellidos = 'General';
+        correo = 'admin@vitalgym.com';
+      } else if (cleanId === '1088990011' || cleanId.includes('externo') || cleanId.includes('socio') || window.__forzarPanelExterno || tipoEstudiante === 'externo') {
+        rol = 'socio';
+        destino = 'externo.html';
+        if (cleanId === '1088990011' || cleanId.includes('externo') || cleanId.includes('socio')) {
+          nombre = 'Carlos Andrés';
+          apellidos = 'Rojas Pérez';
+          correo = 'externo@vitalgym.com';
+        }
       }
 
+      var prefijoQr = (rol === 'socio') ? (tipoEstudiante === 'interno' ? 'QR-INT-' : 'QR-EXT-') : 'QR-APR-';
+
       var usuario = {
-        id: 4,
+        id: rol === 'socio' ? 20 : 4,
         numero_documento: id || '1076903505',
         documento_alias: '1107530057',
-        correo: 'santiago.hernandez@example.com',
+        correo: correo,
         nombres: nombre,
         apellidos: apellidos,
         rol: rol,
-        ficha_sena: '3312595',
+        tipo_estudiante: tipoEstudiante,
+        ficha_sena: rol === 'socio' ? 'EXTERNO-SENA' : '3312595',
         puntos_constancia: 260,
-        plan: 'Plan Oro Activo (Sin Costo)',
-        imc: '25.6',
-        asistencias: 20,
+        plan: rol === 'socio' ? 'Pase Deportivo SENA ($0 COP)' : 'Plan Oro Activo (Sin Costo)',
+        imc: rol === 'socio' ? '23.4' : '25.6',
+        asistencias: rol === 'socio' ? 8 : 20,
         retos: '2 / 2',
-        codigo_qr_token: 'QR-APR-' + (id || '1076903505'),
+        codigo_qr_token: prefijoQr + (id || '1076903505'),
         activo: 1
       };
 
       try {
         localStorage.setItem('vitalgym_sesion', JSON.stringify(usuario));
+        localStorage.setItem('vitalgym_tipo_estudiante', tipoEstudiante);
       } catch (err) {}
 
+      window.__forzarPanelExterno = false;
       window.location.replace(destino);
       return false;
     }
 
     function accesoDirectoSantiago() {
+      window.__forzarPanelExterno = false;
+      seleccionarTipoEstudianteLogin('interno');
       var idInput = document.getElementById('login-identificador');
       var claveInput = document.getElementById('login-clave');
       if (idInput) idInput.value = '1076903505';
@@ -1480,9 +1604,21 @@
       ejecutarLoginDirecto(null);
     }
 
+    function accesoDirectoExterno() {
+      window.__forzarPanelExterno = true;
+      seleccionarTipoEstudianteLogin('externo');
+      var idInput = document.getElementById('login-identificador');
+      var claveInput = document.getElementById('login-clave');
+      if (idInput) idInput.value = '1088990011';
+      if (claveInput) claveInput.value = '123456';
+      ejecutarLoginDirecto(null);
+    }
+
+    window.seleccionarTipoEstudianteLogin = seleccionarTipoEstudianteLogin;
     window.ejecutarLogin = ejecutarLoginDirecto;
     window.iniciarSesionDirecta = ejecutarLoginDirecto;
     window.accesoDirectoSantiago = accesoDirectoSantiago;
+    window.accesoDirectoExterno = accesoDirectoExterno;
   </script>
 
   <!-- ========================================================================= -->

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-[#F8FAFC] text-slate-900 scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Usuario Externo · VITALGYM SENA La Angostura</title>
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            sena: {
+              50: '#f2fcf0',
+              100: '#e0f8db',
+              200: '#c2f0b8',
+              300: '#93e384',
+              400: '#5bce48',
+              500: '#39A900',
+              600: '#2e8700',
+              700: '#236900',
+              800: '#194b00',
+              900: '#0b2600',
+            }
+          },
+          boxShadow: {
+            'soft': '0 4px 24px -6px rgba(15, 23, 42, 0.06)',
+            'elevated': '0 20px 45px -15px rgba(15, 23, 42, 0.10)',
+            'glow-sena': '0 12px 32px -8px rgba(57, 169, 0, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #39A900; }
+
+    .hero-surface {
+      background-color: #071908;
+      background-image:
+        radial-gradient(ellipse 70% 60% at 15% 15%, rgba(57, 169, 0, 0.25) 0%, transparent 65%),
+        linear-gradient(135deg, #061406 0%, #0d2b0d 60%, #154211 100%);
+    }
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col font-sans antialiased text-slate-800 bg-[#F8FAFC] selection:bg-[#39A900] selection:text-white">
+
+  <!-- Franja superior institucional -->
+  <div class="h-1 bg-gradient-to-r from-[#071908] via-[#39A900] to-emerald-400 w-full sticky top-0 z-50"></div>
+
+  <!-- ===================================================================== -->
+  <!-- HEADER EJECUTIVO - PANEL USUARIO EXTERNO / ESTUDIANTE                 -->
+  <!-- ===================================================================== -->
+  <header class="border-b border-slate-200/80 bg-white/95 backdrop-blur-xl sticky top-1 z-40">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 h-[72px] flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="group flex items-center gap-2.5 active:scale-95 transition-transform" title="Volver al portal principal">
+          <img src="logo.png" alt="Logo VitalGym" class="h-10 w-10 rounded-xl object-cover shadow-sm ring-2 ring-[#39A900]/25">
+          <span class="h-6 w-px bg-slate-200"></span>
+          <img src="logo_sena.png" alt="Logo SENA" class="h-9 w-auto object-contain">
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-display text-lg font-extrabold tracking-tight uppercase text-slate-900 leading-none">VITALGYM</h1>
+            <span id="header-badge-modalidad" class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200">
+              EXTERNO
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium hidden sm:block">Panel de Acceso · SENA La Angostura</p>
+        </div>
+      </div>
+
+      <!-- Menú Central -->
+      <nav class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1 rounded-full border border-slate-200/70 text-xs font-bold">
+        <span class="px-4 py-1.5 rounded-full bg-white text-[#236900] shadow-sm">Mi Panel</span>
+        <a href="#seccion-clases" class="px-4 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white/70 transition">Clases</a>
+        <a href="#seccion-rutina" class="px-4 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white/70 transition">Rutina</a>
+        <a href="index.html" class="px-4 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white/70 transition">Portal Principal</a>
+      </nav>
+
+      <!-- Usuario y Cambio de Modalidad -->
+      <div class="flex items-center gap-2.5">
+        <button type="button" onclick="abrirModalTipoEstudiante()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#236900] border border-emerald-200 text-[11px] font-bold transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          <span>Interno / Externo</span>
+        </button>
+
+        <div class="flex items-center gap-2.5 bg-slate-50 border border-slate-200/80 pl-2 pr-3 py-1.5 rounded-full shadow-sm">
+          <div id="ext-header-avatar" class="h-8 w-8 rounded-full bg-[#39A900] text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+            CR
+          </div>
+          <div class="text-left hidden sm:block">
+            <p id="ext-header-nombre" class="text-xs font-bold text-slate-900 leading-tight">Carlos Andrés Rojas</p>
+            <span id="ext-header-sub" class="text-[10px] text-[#236900] font-semibold">Estudiante Externo</span>
+          </div>
+          <a href="index.html" onclick="cerrarSesionExterno()" title="Cerrar Sesión" class="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-full transition ml-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- CONTENIDO PRINCIPAL                                                   -->
+  <!-- ===================================================================== -->
+  <main class="flex-1 w-full max-w-7xl mx-auto px-4 lg:px-8 py-6 lg:py-8 space-y-6">
+
+    <!-- BANNER DE PERFIL Y MODALIDAD (INTERNO VS EXTERNO) -->
+    <section class="hero-surface text-white rounded-3xl p-6 sm:p-8 shadow-elevated border border-emerald-900/60 relative overflow-hidden">
+      <div class="absolute inset-0 grid-pattern opacity-60 pointer-events-none"></div>
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+
+        <div class="flex items-start sm:items-center gap-4">
+          <div id="ext-banner-avatar" class="h-16 w-16 sm:h-20 sm:w-20 rounded-2xl bg-[#39A900]/25 border-2 border-[#5bce48] text-white font-display font-black text-2xl flex items-center justify-center shrink-0 shadow-lg">
+            CR
+          </div>
+          <div class="space-y-1.5">
+            <div class="flex flex-wrap items-center gap-2">
+              <h2 id="ext-banner-nombre" class="font-display text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                Carlos Andrés Rojas
+              </h2>
+              <span id="ext-banner-badge-tipo" class="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-sky-400/20 text-sky-200 border border-sky-300/35">
+                Estudiante Externo
+              </span>
+            </div>
+            <p id="ext-banner-detalle" class="text-xs sm:text-sm text-slate-300">
+              Documento <strong class="text-white font-mono" id="ext-banner-doc">1088990011</strong> · <span class="text-[#65e33d] font-bold" id="ext-banner-plan">Pase Deportivo Activo ($0 COP)</span>
+            </p>
+            <p id="ext-banner-horario-texto" class="text-xs text-emerald-200/90 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-[#65e33d] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Horario autorizado: Lun–Vie 6:00 AM – 8:00 PM · Sáb 7:00 AM – 1:00 PM</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Selector Rápido Interno / Externo -->
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 space-y-2 min-w-[270px]">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-200">¿Eres Estudiante Interno o Externo?</p>
+          <div class="grid grid-cols-2 gap-2">
+            <button type="button" id="btn-switch-interno" onclick="seleccionarModalidadEstudiante('interno', true)" class="py-2 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white/10 text-slate-200 hover:bg-white/20 border border-white/10">
+              <span>Interno</span>
+            </button>
+            <button type="button" id="btn-switch-externo" onclick="seleccionarModalidadEstudiante('externo', true)" class="py-2 px-3 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 bg-[#39A900] text-white shadow-md">
+              <span>Externo</span>
+            </button>
+          </div>
+          <p id="ext-switch-nota" class="text-[10px] text-slate-300 leading-snug">
+            Externo: jornada diurna y acceso a clases grupales.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TARJETAS KPI -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-soft flex items-center justify-between">
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Modalidad</p>
+          <p id="kpi-modalidad" class="font-display text-lg font-extrabold text-slate-900 mt-0.5">Est. Externo</p>
+          <p id="kpi-modalidad-sub" class="text-[11px] text-[#236900] font-semibold">Pase Verificado</p>
+        </div>
+        <div class="h-11 w-11 rounded-xl bg-[#f2fcf0] text-[#236900] flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-soft flex items-center justify-between">
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Asistencias Mes</p>
+          <p id="kpi-asistencias" class="font-display text-2xl font-extrabold text-slate-900 mt-0.5">8</p>
+          <p class="text-[11px] text-slate-500">Entrenamientos</p>
+        </div>
+        <div class="h-11 w-11 rounded-xl bg-emerald-50 text-[#236900] flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-soft flex items-center justify-between">
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Clases Reservadas</p>
+          <p id="kpi-clases" class="font-display text-2xl font-extrabold text-slate-900 mt-0.5">1</p>
+          <p class="text-[11px] text-slate-500">Esta semana</p>
+        </div>
+        <div class="h-11 w-11 rounded-xl bg-emerald-50 text-[#236900] flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-soft flex items-center justify-between">
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">IMC Registrado</p>
+          <p id="kpi-imc" class="font-display text-2xl font-extrabold text-[#236900] mt-0.5">23.4</p>
+          <p id="kpi-imc-estado" class="text-[11px] text-slate-500">Peso Saludable</p>
+        </div>
+        <div class="h-11 w-11 rounded-xl bg-emerald-50 text-[#236900] flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID PRINCIPAL: CARNET QR + BENEFICIOS / RUTINA -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- COLUMNA IZQUIERDA (4 cols): CARNET DIGITAL QR & CONDICIONES -->
+      <div class="lg:col-span-4 space-y-6">
+
+        <!-- Carnet QR Digital -->
+        <div class="bg-white border border-slate-200/80 rounded-3xl overflow-hidden shadow-soft">
+          <div class="hero-surface p-5 text-white flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <img src="logo.png" alt="VitalGym" class="h-8 w-8 rounded-lg object-cover border border-white/25">
+              <div>
+                <p class="font-display text-sm font-extrabold leading-none">CARNET DIGITAL QR</p>
+                <p id="carnet-subtitulo" class="text-[10px] text-[#65e33d] font-bold uppercase tracking-wider mt-0.5">Pase Estudiante Externo</p>
+              </div>
+            </div>
+            <img src="logo_sena.png" alt="SENA" class="h-7 w-auto brightness-0 invert opacity-90">
+          </div>
+
+          <div class="p-6 space-y-5">
+            <div class="flex items-center gap-3.5">
+              <div id="carnet-iniciales" class="h-14 w-14 rounded-2xl bg-emerald-50 border-2 border-[#39A900] text-[#236900] font-display font-black text-xl flex items-center justify-center shrink-0">
+                CR
+              </div>
+              <div class="text-xs space-y-0.5">
+                <p id="carnet-nombre" class="font-extrabold text-slate-900 text-sm leading-tight">Carlos Andrés Rojas</p>
+                <p id="carnet-doc" class="font-mono text-slate-500 text-[11px]">Doc: 1088990011</p>
+                <span id="carnet-chip-tipo" class="inline-block text-[10px] font-extrabold px-2 py-0.5 rounded bg-sky-50 text-sky-700 border border-sky-200">
+                  ESTUDIANTE EXTERNO
+                </span>
+              </div>
+            </div>
+
+            <!-- QR SVG -->
+            <div class="flex flex-col items-center justify-center py-4 bg-slate-50 rounded-2xl border border-slate-200/70">
+              <div class="p-2.5 bg-white rounded-xl border border-slate-200 shadow-sm">
+                <svg class="w-28 h-28 text-slate-900" viewBox="0 0 100 100" fill="currentColor">
+                  <path d="M10 10h30v30h-30z M15 15h20v20h-20z M20 20h10v10h-10z M60 10h30v30h-30z M65 15h20v20h-20z M70 20h10v10h-10z M10 60h30v30h-30z M15 65h20v20h-20z M20 70h10v10h-10z M45 10h10v10h-10z M45 25h10v10h-10z M45 40h10v20h-10z M10 45h20v10h-20z M25 45h10v10h-10z M60 45h15v10h-15z M80 45h10v10h-10z M60 60h10v10h-10z M75 60h15v10h-15z M60 75h20v10h-20z M85 75h5v20h-5z M45 65h10v15h-10z M45 85h25v5h-25z M75 85h15v5h-15z"/>
+                </svg>
+              </div>
+              <p id="carnet-qr-token" class="font-mono text-xs font-extrabold text-[#236900] tracking-wider mt-2.5">QR-EXT-1088990011</p>
+              <p class="text-[10px] text-slate-400 mt-0.5">Presenta este código en el torniquete de recepción</p>
+            </div>
+
+            <button type="button" onclick="registrarAsistenciaExterna()" class="w-full py-3 rounded-xl bg-[#39A900] hover:bg-[#2e8700] text-white font-extrabold text-xs uppercase tracking-wider shadow-glow-sena transition active:scale-95 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <span>Registrar Ingreso Hoy</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Condiciones y Beneficios Dinámicos según Interno / Externo -->
+        <div class="bg-white border border-slate-200/80 rounded-3xl p-6 shadow-soft space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 id="titulo-condiciones-modalidad" class="font-display text-base font-extrabold text-slate-900">Beneficios Estudiante Externo</h3>
+            <button type="button" onclick="abrirModalTipoEstudiante()" class="text-[11px] font-bold text-[#236900] hover:underline">Cambiar</button>
+          </div>
+          <ul id="lista-beneficios-modalidad" class="space-y-2.5 text-xs text-slate-600">
+            <!-- Renderizado dinámicamente por externo.js -->
+          </ul>
+        </div>
+
+        <!-- Calculadora Rápida IMC -->
+        <div class="bg-white border border-slate-200/80 rounded-3xl p-6 shadow-soft space-y-4">
+          <div>
+            <h3 class="font-display text-base font-extrabold text-slate-900">Actualizar mi IMC (OMS)</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Registra tu peso y estatura para seguimiento personal.</p>
+          </div>
+          <form onsubmit="actualizarImcExterno(event)" class="space-y-3">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">Peso (kg)</label>
+                <input type="number" id="ext-peso" step="0.1" required placeholder="70" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:bg-white focus:border-[#39A900]">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">Estatura (cm)</label>
+                <input type="number" id="ext-altura" step="1" required placeholder="173" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:bg-white focus:border-[#39A900]">
+              </div>
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition">
+              Calcular y Guardar IMC
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- COLUMNA DERECHA (8 cols): RUTINA INTERACTIVA + RESERVA DE CLASES -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- Sección Rutina Interactiva -->
+        <section id="seccion-rutina" class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-7 shadow-soft space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+            <div>
+              <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#39A900]">Plan Sugerido SENA</span>
+              <h3 class="font-display text-xl font-extrabold text-slate-900">Rutina de Entrenamiento Interactiva</h3>
+            </div>
+            <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
+              <button type="button" onclick="cambiarDiaRutinaExterno('dia1')" id="ext-btn-dia1" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#39A900] text-white shadow-sm transition">Día 1 · Superior</button>
+              <button type="button" onclick="cambiarDiaRutinaExterno('dia2')" id="ext-btn-dia2" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition">Día 2 · Inferior</button>
+              <button type="button" onclick="cambiarDiaRutinaExterno('dia3')" id="ext-btn-dia3" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition">Día 3 · Full Body</button>
+            </div>
+          </div>
+
+          <!-- Progreso de sesión -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-xs font-bold">
+              <span class="text-slate-600">Progreso de la sesión actual</span>
+              <span id="ext-rutina-progreso-texto" class="font-mono text-[#236900]">0% completado</span>
+            </div>
+            <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+              <div id="ext-rutina-progreso-barra" class="h-full bg-[#39A900] rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- Lista de ejercicios -->
+          <div id="ext-lista-ejercicios" class="space-y-3">
+            <!-- Renderizado por externo.js -->
+          </div>
+        </section>
+
+        <!-- Sección Clases Dirigidas -->
+        <section id="seccion-clases" class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-7 shadow-soft space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+            <div>
+              <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#39A900]">Cupos en Vivo</span>
+              <h3 class="font-display text-xl font-extrabold text-slate-900">Reserva de Clases Grupales</h3>
+              <p class="text-xs text-slate-500 mt-0.5">Asegura tu cupo sin costo en las sesiones dirigidas por instructores SENA.</p>
+            </div>
+            <span class="text-xs font-bold px-3 py-1.5 rounded-xl bg-emerald-50 text-[#236900] border border-emerald-200 w-fit">
+              Sin Costo · $0 COP
+            </span>
+          </div>
+
+          <div id="ext-grid-clases" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Renderizado por externo.js -->
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL DE PREGUNTA: ¿ERES ESTUDIANTE INTERNO O EXTERNO?                -->
+  <!-- ===================================================================== -->
+  <div id="modal-tipo-estudiante" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-[#061406]/75 backdrop-blur-md p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6 relative">
+
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <img src="logo.png" alt="VitalGym" class="h-9 w-9 rounded-xl object-cover border border-[#39A900]">
+          <span class="h-5 w-px bg-slate-200"></span>
+          <img src="logo_sena.png" alt="SENA" class="h-8 w-auto object-contain">
+        </div>
+        <button type="button" onclick="cerrarModalTipoEstudiante()" class="h-8 w-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition" aria-label="Cerrar">
+          ✕
+        </button>
+      </div>
+
+      <div class="space-y-1.5">
+        <span class="text-[11px] font-extrabold uppercase tracking-widest text-[#39A900]">Configuración de Acceso · SENA La Angostura</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-black text-slate-900">¿Eres Estudiante Interno o Externo?</h2>
+        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+          Selecciona tu modalidad para habilitar los horarios correctos, tu carnet QR institucional y tus beneficios en el gimnasio.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Opción 1: Estudiante Interno -->
+        <button type="button" onclick="seleccionarModalidadEstudiante('interno', true); cerrarModalTipoEstudiante();" class="text-left p-5 rounded-2xl border-2 border-slate-200 hover:border-[#39A900] hover:bg-emerald-50/40 transition-all group space-y-3 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <div class="h-11 w-11 rounded-xl bg-emerald-50 text-[#236900] group-hover:bg-[#39A900] group-hover:text-white flex items-center justify-center transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </div>
+            <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 text-[#236900]">Internado</span>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-extrabold text-slate-900 group-hover:text-[#236900]">Estudiante Interno</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Residente en el internado del Centro La Angostura. Acceso extendido (5:30 AM – 9:00 PM) y turno nocturno.</p>
+          </div>
+          <span class="inline-flex items-center gap-1 text-xs font-extrabold text-[#236900]">
+            Seleccionar Interno →
+          </span>
+        </button>
+
+        <!-- Opción 2: Estudiante Externo -->
+        <button type="button" onclick="seleccionarModalidadEstudiante('externo', true); cerrarModalTipoEstudiante();" class="text-left p-5 rounded-2xl border-2 border-slate-200 hover:border-sky-500 hover:bg-sky-50/40 transition-all group space-y-3 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <div class="h-11 w-11 rounded-xl bg-sky-50 text-sky-700 group-hover:bg-sky-600 group-hover:text-white flex items-center justify-center transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800">Externo</span>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-extrabold text-slate-900 group-hover:text-sky-700">Estudiante Externo</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Estudiante de jornada diurna o comunidad externa vinculada. Acceso 6:00 AM – 8:00 PM y sábados.</p>
+          </div>
+          <span class="inline-flex items-center gap-1 text-xs font-extrabold text-sky-700">
+            Seleccionar Externo →
+          </span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Notificación Toast -->
+  <div id="ext-toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl text-xs font-bold border border-emerald-500/40 flex items-center gap-2">
+    <span class="h-2 w-2 rounded-full bg-[#4ade80]"></span>
+    <span id="ext-toast-msg">Operación completada</span>
+  </div>
+
+  <script src="externo.js?v=20261117_pro"></script>
+</body>
+</html>

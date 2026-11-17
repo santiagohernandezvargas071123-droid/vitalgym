@@ -1211,6 +1211,9 @@ async function enviarFormularioProspecto(e) {
   const tel = document.getElementById('lead-telefono').value.trim();
   const sede = document.getElementById('lead-sede').value;
   const plan = document.getElementById('lead-plan') ? document.getElementById('lead-plan').value : 'Plan Oro';
+  const tipoEstEl = document.getElementById('lead-tipo-estudiante');
+  const tipoEstudiante = tipoEstEl ? tipoEstEl.value : 'interno';
+  const etiquetaTipo = tipoEstudiante === 'externo' ? 'Estudiante Externo' : 'Estudiante Interno';
 
   if (!nombre || !tel) {
     alert('Por favor complete su nombre y número de WhatsApp.');
@@ -1225,7 +1228,8 @@ async function enviarFormularioProspecto(e) {
         nombre_completo: nombre,
         telefono: tel,
         sede_interes: sede,
-        notas: `Interesado en ${plan} (Sin costo institucional SENA)`
+        tipo_estudiante: tipoEstudiante,
+        notas: `Modalidad: ${etiquetaTipo} | Interesado en ${plan} (Sin costo institucional SENA)`
       })
     });
   } catch (err) {
@@ -1233,7 +1237,7 @@ async function enviarFormularioProspecto(e) {
   }
 
   reproducirSonidoExito();
-  alert(`¡Gracias ${nombre}! Tu solicitud para el ${plan} (100% Gratuito) en VitalGym (${sede}) ha sido enviada. Te contactaremos por WhatsApp.`);
+  alert(`¡Gracias ${nombre}! Tu solicitud como ${etiquetaTipo} para el ${plan} (100% Gratuito) en VitalGym (${sede}) ha sido enviada. Te contactaremos por WhatsApp.`);
   document.getElementById('form-lead-landing').reset();
 }
 
@@ -1408,13 +1412,25 @@ function abrirLoginPorRol(rol) {
   const subtitulo = document.getElementById('modal-auth-subtitulo');
   
   if (rol === 'aprendiz') {
+    window.__forzarPanelExterno = false;
+    if (typeof seleccionarTipoEstudianteLogin === 'function') seleccionarTipoEstudianteLogin('interno');
     if (idInput) idInput.value = '1076903505';
     if (claveInput) claveInput.value = '123456';
     if (subtitulo) subtitulo.textContent = 'Acceso Aprendiz SENA · Santiago Hernández Vargas (ADSO 3312595)';
     if (typeof mostrarNotificacionToast === 'function') {
-      mostrarNotificacionToast('Credenciales Aprendiz cargadas. Haz clic en "Iniciar Sesión"', 'info');
+      mostrarNotificacionToast('Credenciales Aprendiz cargadas. Selecciona Interno/Externo e inicia sesión.', 'info');
+    }
+  } else if (rol === 'externo' || rol === 'socio') {
+    window.__forzarPanelExterno = true;
+    if (typeof seleccionarTipoEstudianteLogin === 'function') seleccionarTipoEstudianteLogin('externo');
+    if (idInput) idInput.value = '1088990011';
+    if (claveInput) claveInput.value = '123456';
+    if (subtitulo) subtitulo.textContent = 'Panel Usuario Externo · Indica si eres Estudiante Interno o Externo';
+    if (typeof mostrarNotificacionToast === 'function') {
+      mostrarNotificacionToast('Selecciona si eres Estudiante Interno o Externo y haz clic en "Iniciar Sesión".', 'info');
     }
   } else if (rol === 'entrenador') {
+    window.__forzarPanelExterno = false;
     if (idInput) idInput.value = 'martha.rivera@vitalgym.com';
     if (claveInput) claveInput.value = '123456';
     if (subtitulo) subtitulo.textContent = 'Acceso Instructora SENA · Martha Rivera (Valoración & Coaching)';
@@ -1422,6 +1438,7 @@ function abrirLoginPorRol(rol) {
       mostrarNotificacionToast('Credenciales Instructora cargadas. Haz clic en "Iniciar Sesión"', 'info');
     }
   } else if (rol === 'admin') {
+    window.__forzarPanelExterno = false;
     if (idInput) idInput.value = 'admin@vitalgym.com';
     if (claveInput) claveInput.value = '123456';
     if (subtitulo) subtitulo.textContent = 'Acceso Administración General · La Angostura (HU-06 / HU-08)';
@@ -1461,7 +1478,8 @@ async function ejecutarLogin(e) {
     { id: 6, numero_documento: '1012345678', correo: 'german.mouse@example.com', nombres: 'Germán', apellidos: 'Mouse', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 95, plan: 'Plan Bronce (Sin Costo)', imc: '28.2', asistencias: 8, retos: '0 / 2', codigo_qr_token: 'QR-APR-1012345678', activo: 1 },
     { id: 2, numero_documento: '1000000002', correo: 'martha.rivera@vitalgym.com', nombres: 'Martha', apellidos: 'Rivera', rol: 'entrenador', ficha_sena: 'INSTRUCTORA-SENA', puntos_constancia: 50, plan: 'Instructor Titular SENA', activo: 1 },
     { id: 3, numero_documento: '1000000003', correo: 'recepcion@vitalgym.com', nombres: 'Valeria', apellidos: 'Recepción', rol: 'recepcionista', ficha_sena: 'STAFF-ANGOS', puntos_constancia: 0, plan: 'Staff VitalGym', activo: 1 },
-    { id: 1, numero_documento: '1000000001', correo: 'admin@vitalgym.com', nombres: 'Administrador', apellidos: 'General', rol: 'administrador', ficha_sena: 'ADSO-3312595', puntos_constancia: 0, plan: 'Admin VitalGym', activo: 1 }
+    { id: 1, numero_documento: '1000000001', correo: 'admin@vitalgym.com', nombres: 'Administrador', apellidos: 'General', rol: 'administrador', ficha_sena: 'ADSO-3312595', puntos_constancia: 0, plan: 'Admin VitalGym', activo: 1 },
+    { id: 20, numero_documento: '1088990011', correo: 'externo@vitalgym.com', nombres: 'Carlos Andrés', apellidos: 'Rojas Pérez', rol: 'socio', tipo_estudiante: 'externo', ficha_sena: 'EXTERNO-SENA', puntos_constancia: 40, plan: 'Pase Deportivo SENA ($0 COP)', codigo_qr_token: 'QR-EXT-1088990011', activo: 1 }
   ];
 
   let usuariosRegistrados = [];
@@ -1570,7 +1588,8 @@ function loginOfflineFallback(identificador, clave) {
     { id: 6, numero_documento: '1012345678', correo: 'german.mouse@example.com', nombres: 'Germán', apellidos: 'Mouse', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 95, plan: 'Plan Bronce (Sin Costo)', imc: '28.2', asistencias: 8, retos: '0 / 2', codigo_qr_token: 'QR-APR-1012345678', activo: 1 },
     { id: 2, numero_documento: '1000000002', correo: 'martha.rivera@vitalgym.com', nombres: 'Martha', apellidos: 'Rivera', rol: 'entrenador', ficha_sena: 'INSTRUCTORA-SENA', puntos_constancia: 50, plan: 'Instructor Titular SENA', activo: 1 },
     { id: 3, numero_documento: '1000000003', correo: 'recepcion@vitalgym.com', nombres: 'Valeria', apellidos: 'Recepción', rol: 'recepcionista', ficha_sena: 'STAFF-ANGOS', puntos_constancia: 0, plan: 'Staff VitalGym', activo: 1 },
-    { id: 1, numero_documento: '1000000001', correo: 'admin@vitalgym.com', nombres: 'Administrador', apellidos: 'General', rol: 'administrador', ficha_sena: 'ADSO-3312595', puntos_constancia: 0, plan: 'Admin VitalGym', activo: 1 }
+    { id: 1, numero_documento: '1000000001', correo: 'admin@vitalgym.com', nombres: 'Administrador', apellidos: 'General', rol: 'administrador', ficha_sena: 'ADSO-3312595', puntos_constancia: 0, plan: 'Admin VitalGym', activo: 1 },
+    { id: 20, numero_documento: '1088990011', correo: 'externo@vitalgym.com', nombres: 'Carlos Andrés', apellidos: 'Rojas Pérez', rol: 'socio', tipo_estudiante: 'externo', ficha_sena: 'EXTERNO-SENA', puntos_constancia: 40, plan: 'Pase Deportivo SENA ($0 COP)', codigo_qr_token: 'QR-EXT-1088990011', activo: 1 }
   ];
 
   let usuariosRegistrados = [];
@@ -1618,6 +1637,8 @@ function loginOfflineFallback(identificador, clave) {
 async function ejecutarRegistro(e) {
   e.preventDefault();
   const rol = document.getElementById('reg-rol').value;
+  const tipoEstEl = document.getElementById('reg-tipo-estudiante');
+  const tipoEstudiante = tipoEstEl ? tipoEstEl.value : 'interno';
   const fichaSena = document.getElementById('reg-ficha') ? document.getElementById('reg-ficha').value.trim() : '';
   const nombres = document.getElementById('reg-nombres').value.trim();
   const apellidos = document.getElementById('reg-apellidos').value.trim();
@@ -1639,6 +1660,9 @@ async function ejecutarRegistro(e) {
     btnSubmit.innerHTML = '<span>Creando cuenta...</span>';
   }
 
+  const etiquetaTipo = tipoEstudiante === 'externo' ? 'Estudiante Externo' : 'Estudiante Interno';
+  const destinoRol = (rol === 'socio' || tipoEstudiante === 'externo') && rol !== 'entrenador' ? 'socio' : rol;
+
   try {
     const res = await fetch('api.php?action=registro', {
       method: 'POST',
@@ -1651,6 +1675,7 @@ async function ejecutarRegistro(e) {
         telefono,
         clave,
         rol,
+        tipo_estudiante: tipoEstudiante,
         ficha_sena: fichaSena,
         plan_id: planId
       })
@@ -1664,15 +1689,18 @@ async function ejecutarRegistro(e) {
     }
 
     if (res.ok && data && data.status === 'success') {
-      establecerSesionUsuario(data.usuario);
+      const usuarioFinal = { ...data.usuario, tipo_estudiante: tipoEstudiante };
+      try { localStorage.setItem('vitalgym_tipo_estudiante', tipoEstudiante); } catch (_) {}
+      establecerSesionUsuario(usuarioFinal);
       cerrarModalAuth();
       reproducirSonidoExito();
-      alert(`🎉 ¡Cuenta creada con éxito!\n\nBienvenido(a) a VitalGym, ${nombres}. Tu membresía sin costo ha sido activada y se ha generado tu código QR personal.`);
-      redireccionarPorRol(data.usuario.rol);
+      alert(`¡Cuenta creada con éxito!\n\nBienvenido(a) a VitalGym, ${nombres} (${etiquetaTipo}). Tu membresía sin costo ha sido activada y se ha generado tu código QR personal.`);
+      redireccionarPorRol(destinoRol);
       return;
     }
 
     // Si falló el servidor remoto, registrarlo localmente en el dispositivo
+    const prefQr = destinoRol === 'socio' ? (tipoEstudiante === 'interno' ? 'QR-INT' : 'QR-EXT') : `QR-${rol.substring(0,3).toUpperCase()}`;
     const nuevoUsuario = {
       id: Date.now(),
       numero_documento: documento,
@@ -1680,9 +1708,10 @@ async function ejecutarRegistro(e) {
       apellidos,
       correo,
       telefono,
-      rol,
+      rol: destinoRol,
+      tipo_estudiante: tipoEstudiante,
       ficha_sena: fichaSena,
-      codigo_qr_token: `QR-${rol.substring(0,3).toUpperCase()}-${documento}`,
+      codigo_qr_token: `${prefQr}-${documento}`,
       puntos_constancia: 10,
       plan: 'Plan Oro Institucional (Sin Costo)',
       estado_membresia: 'activa'
@@ -1691,17 +1720,19 @@ async function ejecutarRegistro(e) {
       const reg = JSON.parse(localStorage.getItem('vitalgym_usuarios_registrados') || '[]');
       reg.push(nuevoUsuario);
       localStorage.setItem('vitalgym_usuarios_registrados', JSON.stringify(reg));
+      localStorage.setItem('vitalgym_tipo_estudiante', tipoEstudiante);
     } catch (_) {}
     establecerSesionUsuario(nuevoUsuario);
     cerrarModalAuth();
     reproducirSonidoExito();
-    alert(`🎉 ¡Cuenta creada con éxito!\nBienvenido(a) ${nombres} a VitalGym. Tu membresía sin costo está activa.`);
-    redireccionarPorRol(rol);
+    alert(`¡Cuenta creada con éxito!\nBienvenido(a) ${nombres} (${etiquetaTipo}) a VitalGym. Tu membresía sin costo está activa.`);
+    redireccionarPorRol(destinoRol);
     return;
 
   } catch (err) {
     // Fallback offline
     console.warn('API no disponible, registrando en modo local:', err);
+    const prefQr = destinoRol === 'socio' ? (tipoEstudiante === 'interno' ? 'QR-INT' : 'QR-EXT') : `QR-${rol.substring(0,3).toUpperCase()}`;
     const nuevoUsuario = {
       id: Date.now(),
       numero_documento: documento,
@@ -1709,9 +1740,10 @@ async function ejecutarRegistro(e) {
       apellidos,
       correo,
       telefono,
-      rol,
+      rol: destinoRol,
+      tipo_estudiante: tipoEstudiante,
       ficha_sena: fichaSena,
-      codigo_qr_token: `QR-${rol.substring(0,3).toUpperCase()}-${documento}`,
+      codigo_qr_token: `${prefQr}-${documento}`,
       puntos_constancia: 10,
       plan: 'Plan Oro Institucional (Sin Costo)',
       estado_membresia: 'activa'
@@ -1720,12 +1752,13 @@ async function ejecutarRegistro(e) {
       const reg = JSON.parse(localStorage.getItem('vitalgym_usuarios_registrados') || '[]');
       reg.push(nuevoUsuario);
       localStorage.setItem('vitalgym_usuarios_registrados', JSON.stringify(reg));
+      localStorage.setItem('vitalgym_tipo_estudiante', tipoEstudiante);
     } catch (_) {}
     establecerSesionUsuario(nuevoUsuario);
     cerrarModalAuth();
     reproducirSonidoExito();
-    alert(`🎉 ¡Cuenta creada con éxito!\nBienvenido(a) ${nombres} a VitalGym. Tu membresía sin costo está activa.`);
-    redireccionarPorRol(rol);
+    alert(`¡Cuenta creada con éxito!\nBienvenido(a) ${nombres} (${etiquetaTipo}) a VitalGym. Tu membresía sin costo está activa.`);
+    redireccionarPorRol(destinoRol);
   } finally {
     if (btnSubmit) {
       btnSubmit.disabled = false;
@@ -1901,12 +1934,14 @@ function actualizarHeaderUsuario(usuario) {
   if (avatar) avatar.textContent = iniciales || 'VG';
   if (nameEl) nameEl.textContent = `${nombres} ${apellidos}`;
   if (roleEl) {
+    const tipoLabel = usuario.tipo_estudiante === 'interno' ? 'Estudiante Interno' : 'Estudiante Externo';
     const rolesMap = {
       'aprendiz': `Aprendiz · Ficha ${usuario.ficha_sena || 'SENA'}`,
       'entrenador': 'Instructor SENA',
       'recepcionista': 'Recepción & Aforo',
       'administrador': 'Administrador del Sistema',
-      'socio': 'Socio Institucional'
+      'socio': tipoLabel,
+      'externo': tipoLabel
     };
     roleEl.textContent = rolesMap[usuario.rol] || 'Usuario Autenticado';
   }
@@ -1922,7 +1957,9 @@ function cerrarSesion() {
 window.cerrarSesion = cerrarSesion;
 
 function redireccionarPorRol(rol) {
-  if (rol === 'aprendiz' || rol === 'socio') {
+  if (rol === 'socio' || rol === 'externo') {
+    window.location.href = 'externo.html';
+  } else if (rol === 'aprendiz') {
     window.location.href = 'aprendiz.html';
   } else if (rol === 'entrenador') {
     window.location.href = 'instructor.html';
