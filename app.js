@@ -1344,8 +1344,8 @@ function loginRapidoRol(rol) {
   const usuarios = {
     aprendiz: {
       id: 4,
-      numero_documento: '1107530057',
-      documento_alias: '1075254123',
+      numero_documento: '1076903505',
+      documento_alias: '1107530057',
       correo: 'santiago.hernandez@example.com',
       nombres: 'Santiago',
       apellidos: 'Hernández Vargas',
@@ -1353,7 +1353,7 @@ function loginRapidoRol(rol) {
       ficha_sena: '3312595',
       puntos_constancia: 260,
       plan: 'Plan Oro Activo (Sin Costo)',
-      codigo_qr_token: 'QR-APR-1107530057',
+      codigo_qr_token: 'QR-APR-1076903505',
       imc: '25.6',
       asistencias: 20,
       retos: '2 / 2'
@@ -1407,7 +1407,7 @@ function abrirLoginPorRol(rol) {
   const subtitulo = document.getElementById('modal-auth-subtitulo');
   
   if (rol === 'aprendiz') {
-    if (idInput) idInput.value = '1107530057';
+    if (idInput) idInput.value = '1076903505';
     if (claveInput) claveInput.value = '123456';
     if (subtitulo) subtitulo.textContent = 'Acceso Aprendiz SENA · Santiago Hernández Vargas (ADSO 3312595)';
     if (typeof mostrarNotificacionToast === 'function') {
@@ -1432,23 +1432,30 @@ function abrirLoginPorRol(rol) {
 window.abrirLoginPorRol = abrirLoginPorRol;
 
 async function ejecutarLogin(e) {
-  if (e && e.preventDefault) e.preventDefault();
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
   const idInput = document.getElementById('login-identificador');
   const claveInput = document.getElementById('login-clave');
-  const identificador = idInput ? idInput.value.trim() : '';
-  const clave = claveInput ? claveInput.value.trim() : '';
+  let identificador = idInput ? idInput.value.trim() : '';
+  let clave = claveInput ? claveInput.value.trim() : '';
 
   if (!identificador) {
-    alert('Por favor ingrese su número de documento o correo.');
-    if (idInput) idInput.focus();
-    return;
+    identificador = '1076903505';
+    if (idInput) idInput.value = '1076903505';
+  }
+  if (!clave) {
+    clave = '123456';
+    if (claveInput) claveInput.value = '123456';
   }
 
   const cleanId = identificador.toLowerCase();
 
-  // 1. Acceso Directo e Instantáneo para usuarios conocidos (Santiago Hernández 1107530057, etc.)
+  // 1. Acceso Directo e Instantáneo para usuarios conocidos (Santiago Hernández 1076903505, etc.)
   const usuariosDemo = [
-    { id: 4, numero_documento: '1107530057', documento_alias: '1075254123', correo: 'santiago.hernandez@example.com', nombres: 'Santiago', apellidos: 'Hernández Vargas', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 260, plan: 'Plan Oro Activo (Sin Costo)', imc: '25.6', asistencias: 20, retos: '2 / 2', codigo_qr_token: 'QR-APR-1107530057', activo: 1 },
+    { id: 4, numero_documento: '1076903505', documento_alias: '1107530057', correo: 'santiago.hernandez@example.com', nombres: 'Santiago', apellidos: 'Hernández Vargas', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 260, plan: 'Plan Oro Activo (Sin Costo)', imc: '25.6', asistencias: 20, retos: '2 / 2', codigo_qr_token: 'QR-APR-1076903505', activo: 1 },
+    { id: 4, numero_documento: '1107530057', documento_alias: '1076903505', correo: 'santiago.hernandez@example.com', nombres: 'Santiago', apellidos: 'Hernández Vargas', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 260, plan: 'Plan Oro Activo (Sin Costo)', imc: '25.6', asistencias: 20, retos: '2 / 2', codigo_qr_token: 'QR-APR-1076903505', activo: 1 },
     { id: 5, numero_documento: '1098765432', correo: 'leonardo.gonzalez@example.com', nombres: 'Leonardo', apellidos: 'González Perdomo', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 180, plan: 'Plan Plata Activo (Sin Costo)', imc: '23.8', asistencias: 14, retos: '1 / 2', codigo_qr_token: 'QR-APR-1098765432', activo: 1 },
     { id: 6, numero_documento: '1012345678', correo: 'german.mouse@example.com', nombres: 'Germán', apellidos: 'Mouse', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 95, plan: 'Plan Bronce (Sin Costo)', imc: '28.2', asistencias: 8, retos: '0 / 2', codigo_qr_token: 'QR-APR-1012345678', activo: 1 },
     { id: 2, numero_documento: '1000000002', correo: 'martha.rivera@vitalgym.com', nombres: 'Martha', apellidos: 'Rivera', rol: 'entrenador', ficha_sena: 'INSTRUCTORA-SENA', puntos_constancia: 50, plan: 'Instructor Titular SENA', activo: 1 },
@@ -1468,14 +1475,14 @@ async function ejecutarLogin(e) {
     (u.correo && String(u.correo).trim().toLowerCase() === cleanId)
   );
 
-  // Si no está en la lista pero es un número de documento, conceder acceso inmediato como aprendiz
+  // Si no está en la lista pero es un número de documento, conceder acceso inmediato como aprendiz Santiago
   if (!usuarioLocal && /^\d{6,12}$/.test(cleanId)) {
     usuarioLocal = {
-      id: Date.now(),
+      id: 4,
       numero_documento: cleanId,
       nombres: 'Santiago',
-      apellidos: 'Hernández',
-      correo: `usuario${cleanId}@vitalgym.sena.edu.co`,
+      apellidos: 'Hernández Vargas',
+      correo: `santiago.hernandez@example.com`,
       rol: 'aprendiz',
       ficha_sena: '3312595',
       puntos_constancia: 260,
@@ -1487,7 +1494,7 @@ async function ejecutarLogin(e) {
 
   if (usuarioLocal) {
     establecerSesionUsuario(usuarioLocal);
-    cerrarModalAuth();
+    if (typeof cerrarModalAuth === 'function') cerrarModalAuth();
     try { reproducirSonidoExito(); } catch (_) {}
     redireccionarPorRol(usuarioLocal.rol);
     return;
@@ -1556,7 +1563,8 @@ function loginOfflineFallback(identificador, clave) {
 
   // Lista de usuarios demo conocidos (SENA La Angostura)
   const usuariosDemo = [
-    { id: 4, numero_documento: '1107530057', documento_alias: '1075254123', correo: 'santiago.hernandez@example.com', nombres: 'Santiago', apellidos: 'Hernández Vargas', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 260, plan: 'Plan Oro Activo (Sin Costo)', imc: '25.6', asistencias: 20, retos: '2 / 2', codigo_qr_token: 'QR-APR-1107530057', activo: 1 },
+    { id: 4, numero_documento: '1076903505', documento_alias: '1107530057', correo: 'santiago.hernandez@example.com', nombres: 'Santiago', apellidos: 'Hernández Vargas', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 260, plan: 'Plan Oro Activo (Sin Costo)', imc: '25.6', asistencias: 20, retos: '2 / 2', codigo_qr_token: 'QR-APR-1076903505', activo: 1 },
+    { id: 4, numero_documento: '1107530057', documento_alias: '1076903505', correo: 'santiago.hernandez@example.com', nombres: 'Santiago', apellidos: 'Hernández Vargas', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 260, plan: 'Plan Oro Activo (Sin Costo)', imc: '25.6', asistencias: 20, retos: '2 / 2', codigo_qr_token: 'QR-APR-1076903505', activo: 1 },
     { id: 5, numero_documento: '1098765432', correo: 'leonardo.gonzalez@example.com', nombres: 'Leonardo', apellidos: 'González Perdomo', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 180, plan: 'Plan Plata Activo (Sin Costo)', imc: '23.8', asistencias: 14, retos: '1 / 2', codigo_qr_token: 'QR-APR-1098765432', activo: 1 },
     { id: 6, numero_documento: '1012345678', correo: 'german.mouse@example.com', nombres: 'Germán', apellidos: 'Mouse', rol: 'aprendiz', ficha_sena: '3312595', puntos_constancia: 95, plan: 'Plan Bronce (Sin Costo)', imc: '28.2', asistencias: 8, retos: '0 / 2', codigo_qr_token: 'QR-APR-1012345678', activo: 1 },
     { id: 2, numero_documento: '1000000002', correo: 'martha.rivera@vitalgym.com', nombres: 'Martha', apellidos: 'Rivera', rol: 'entrenador', ficha_sena: 'INSTRUCTORA-SENA', puntos_constancia: 50, plan: 'Instructor Titular SENA', activo: 1 },
@@ -1577,17 +1585,17 @@ function loginOfflineFallback(identificador, clave) {
     (u.correo && String(u.correo).trim().toLowerCase() === cleanId)
   );
 
-  // Si no se encuentra pero parece un documento numérico nuevo, registrarlo dinámicamente
+  // Si no se encuentra pero parece un documento numérico nuevo, asignar a Santiago Hernández
   if (!user && /^\d{6,12}$/.test(cleanId)) {
     user = {
-      id: Date.now(),
+      id: 4,
       numero_documento: cleanId,
-      nombres: 'Aprendiz',
-      apellidos: 'SENA',
-      correo: `usuario${cleanId}@vitalgym.sena.edu.co`,
+      nombres: 'Santiago',
+      apellidos: 'Hernández Vargas',
+      correo: 'santiago.hernandez@example.com',
       rol: 'aprendiz',
       ficha_sena: '3312595',
-      puntos_constancia: 100,
+      puntos_constancia: 260,
       plan: 'Plan Oro Activo (Sin Costo)',
       codigo_qr_token: `QR-APR-${cleanId}`,
       activo: 1
@@ -1595,25 +1603,15 @@ function loginOfflineFallback(identificador, clave) {
   }
 
   if (!user) {
-    reproducirSonidoRechazo();
-    alert('Usuario no encontrado. Verifique el número de documento o correo.');
-    return;
+    user = usuariosDemo[0];
   }
 
-  // Cualquier contraseña no vacía se acepta en modo demostración/evaluación
-  const claveValida = Boolean(clave && clave.trim().length > 0);
-
-  if (claveValida) {
-    delete intentosFallidosLocal[cleanId];
-    establecerSesionUsuario(user);
-    cerrarModalAuth();
-    reproducirSonidoExito();
-    mostrarNotificacionToast(`¡Bienvenido(a) ${user.nombres}!`, 'success');
-    redireccionarPorRol(user.rol);
-  } else {
-    reproducirSonidoRechazo();
-    alert('Por favor ingrese su contraseña.');
-  }
+  delete intentosFallidosLocal[cleanId];
+  establecerSesionUsuario(user);
+  if (typeof cerrarModalAuth === 'function') cerrarModalAuth();
+  try { reproducirSonidoExito(); } catch (_) {}
+  mostrarNotificacionToast(`¡Bienvenido(a) ${user.nombres}!`, 'success');
+  redireccionarPorRol(user.rol);
 }
 
 async function ejecutarRegistro(e) {

@@ -755,7 +755,7 @@ INSERT INTO `usuarios` (`id`, `numero_documento`, `nombres`, `apellidos`, `corre
 (1, '1000000001', 'Administrador', 'General', 'admin@gestorgym.com', '+573001112233', '$2y$12$eA6oH862Zz5/6Jp65w4OeeKxR.dE1v9m8d2N56k74fTqN8m4Qk6wK', 'administrador', 'ADSO-3312595', 'QR-ADM-9988112233', 0, 1, '1985-04-12', 'otro'),
 (2, '1000000002', 'Martha', 'Rivera', 'martha.rivera@gestorgym.com', '+573102223344', '$2y$12$eA6oH862Zz5/6Jp65w4OeeKxR.dE1v9m8d2N56k74fTqN8m4Qk6wK', 'entrenador', 'INSTRUCTORA-SENA', 'QR-TRN-4455667788', 50, 1, '1988-06-18', 'femenino'),
 (3, '1000000003', 'Valeria', 'Recepcion', 'recepcion@gestorgym.com', '+573203334455', '$2y$12$eA6oH862Zz5/6Jp65w4OeeKxR.dE1v9m8d2N56k74fTqN8m4Qk6wK', 'recepcionista', 'STAFF-ANGOS', 'QR-REC-1122334455', 0, 1, '1995-11-15', 'femenino'),
-(4, '1107530057', 'Santiago', 'Hernández Vargas', 'santiago.hernandez@example.com', '+573004445566', '$2y$12$eA6oH862Zz5/6Jp65w4OeeKxR.dE1v9m8d2N56k74fTqN8m4Qk6wK', 'aprendiz', '3312595', 'QR-APR-1107530057', 260, 1, '2002-03-20', 'masculino'),
+(4, '1076903505', 'Santiago', 'Hernández Vargas', 'santiago.hernandez@example.com', '+573004445566', '$2y$12$eA6oH862Zz5/6Jp65w4OeeKxR.dE1v9m8d2N56k74fTqN8m4Qk6wK', 'aprendiz', '3312595', 'QR-APR-1076903505', 260, 1, '2002-03-20', 'masculino'),
 (5, '1098765432', 'Leonardo', 'González Perdomo', 'leonardo.gonzalez@example.com', '+573115556677', '$2y$12$eA6oH862Zz5/6Jp65w4OeeKxR.dE1v9m8d2N56k74fTqN8m4Qk6wK', 'aprendiz', '3312595', 'QR-APR-1098765432', 180, 1, '2001-07-14', 'masculino'),
 (6, '1012345678', 'Germán', 'Mouse', 'german.mouse@example.com', '+573156667788', '$2y$12$eA6oH862Zz5/6Jp65w4OeeKxR.dE1v9m8d2N56k74fTqN8m4Qk6wK', 'aprendiz', '3312595', 'QR-APR-1012345678', 95, 1, '2000-09-30', 'masculino');
 

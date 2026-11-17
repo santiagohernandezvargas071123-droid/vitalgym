@@ -9,10 +9,10 @@ const estadoAprendiz = {
     id: 4,
     nombres: 'Santiago',
     apellidos: 'Hernández Vargas',
-    numero_documento: '1107530057',
-    documento_alias: '1075254123',
+    numero_documento: '1076903505',
+    documento_alias: '1107530057',
     ficha_sena: '3312595',
-    codigo_qr_token: 'QR-APR-1107530057',
+    codigo_qr_token: 'QR-APR-1076903505',
     puntos_constancia: 260,
     plan: 'Plan Oro Activo (Sin Costo)',
     rol: 'aprendiz'
@@ -149,7 +149,9 @@ function actualizarBannerAprendiz() {
   if (nombreEl) nombreEl.textContent = `${nombres} ${apellidos}`;
   if (headerNameEl) headerNameEl.textContent = `${nombres} ${apellidos}`;
   if (puntosEl) puntosEl.textContent = `${u.puntos_constancia} pts`;
-  if (qrTokenEl) qrTokenEl.textContent = u.codigo_qr_token || `QR-APR-${u.numero_documento || '1107530057'}`;
+  const carnetDocEl = document.getElementById('carnet-aprendiz-doc');
+  if (carnetDocEl) carnetDocEl.textContent = `Doc: ${u.numero_documento || '1076903505'}`;
+  if (qrTokenEl) qrTokenEl.textContent = u.codigo_qr_token || `QR-APR-${u.numero_documento || '1076903505'}`;
   if (detallesEl) {
     detallesEl.innerHTML = `Programa ADSO · Ficha <strong class="text-slate-700">${escapeHtml(u.ficha_sena || '3312595')}</strong> | <span class="text-[#236900] font-bold">${escapeHtml(u.plan || 'Plan Oro Activo (Sin Costo)')}</span>`;
   }
@@ -205,10 +207,10 @@ function cambiarAprendizDemo(id) {
       id: 4,
       nombres: 'Santiago',
       apellidos: 'Hernández Vargas',
-      numero_documento: '1107530057',
-      documento_alias: '1075254123',
+      numero_documento: '1076903505',
+      documento_alias: '1107530057',
       ficha_sena: '3312595',
-      codigo_qr_token: 'QR-APR-1107530057',
+      codigo_qr_token: 'QR-APR-1076903505',
       puntos_constancia: 260,
       plan: 'Plan Oro Activo (Sin Costo)',
       imc: '25.6',
