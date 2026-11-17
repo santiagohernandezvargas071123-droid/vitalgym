@@ -69,3 +69,4 @@ El sistema implementa arquitectura cliente-servidor con backend en **PHP**, base
 - **Instructor:** Correo `martha.rivera@sena.edu.co` | Clave: `admin123`
 - **Recepción:** Correo `recepcion@vitalgym.com` | Clave: `admin123`
 - **Administrador:** Correo `admin@vitalgym.com` | Clave: `admin123`
+
