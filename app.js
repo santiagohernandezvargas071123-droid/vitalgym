@@ -1001,51 +1001,52 @@ function renderizarHorariosLanding() {
     const colorBarra = !hayCupos ? 'bg-rose-500' : (pctOcupacion > 70 ? 'bg-amber-500' : 'bg-[#39A900]');
 
     return `
-      <div class="group bg-white border-2 border-slate-200/90 hover:border-[#39A900] rounded-3xl p-6 space-y-4 flex flex-col justify-between shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-        <!-- Barra de acento superior -->
-        <div class="absolute top-0 left-0 right-0 h-1.5 ${hayCupos ? 'bg-gradient-to-r from-[#236900] to-[#39A900]' : 'bg-slate-300'}"></div>
-        
-        <div class="space-y-3">
+      <div class="group bg-white border border-slate-200/80 hover:border-[#39A900] rounded-3xl p-6 space-y-5 flex flex-col justify-between shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+        <div class="absolute top-0 inset-x-0 h-1 ${hayCupos ? 'bg-gradient-to-r from-[#236900] to-[#5bce48]' : 'bg-slate-300'}"></div>
+
+        <div class="space-y-3.5">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-50 text-[#236900] border border-emerald-200 flex items-center gap-1.5">
-              <span>📍</span> ${escapeHtml(cl.zona_salon)}
+            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[#f2fcf0] text-[#236900] border border-[#39A900]/20 inline-flex items-center gap-1.5">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+              ${escapeHtml(cl.zona_salon)}
             </span>
-            <span class="text-xs font-black ${hayCupos ? 'text-[#236900] bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full' : 'text-rose-700 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-full'}">
-              ${hayCupos ? `● ${cl.cupos_disponibles} libres` : '● Agotado'}
+            <span class="text-[11px] font-bold ${hayCupos ? 'text-[#236900] bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full' : 'text-rose-700 bg-rose-50 border border-rose-200 px-2.5 py-0.5 rounded-full'}">
+              ${hayCupos ? `● ${cl.cupos_disponibles} cupos` : '● Agotado'}
             </span>
           </div>
 
           <div>
-            <h3 class="text-lg font-black text-slate-900 group-hover:text-[#236900] transition">${escapeHtml(cl.nombre_clase)}</h3>
-            <p class="text-xs text-slate-600 mt-1 flex items-center gap-1.5">
-              <span>👩‍🏫</span> Instructor(a): <strong class="text-slate-800">${escapeHtml(cl.instructor_nombre || 'Martha Rivera')}</strong>
+            <h3 class="font-display text-lg font-extrabold text-slate-900 group-hover:text-[#236900] transition">${escapeHtml(cl.nombre_clase)}</h3>
+            <p class="text-xs text-slate-600 mt-1.5 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              <span>Instructor(a): <strong class="text-slate-800">${escapeHtml(cl.instructor_nombre || 'Martha Rivera')}</strong></span>
             </p>
             <p class="text-xs text-slate-500 font-mono mt-1 flex items-center gap-1.5">
-              <span>📅</span> ${escapeHtml(cl.dia_semana)} · ⏰ ${cl.hora_inicio} - ${cl.hora_fin}
+              <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>${escapeHtml(cl.dia_semana)} · ${cl.hora_inicio} – ${cl.hora_fin}</span>
             </p>
           </div>
 
-          <!-- Barra de Aforo Interactivo -->
           <div class="space-y-1.5 pt-2">
             <div class="flex items-center justify-between text-[11px] font-semibold text-slate-500">
-              <span>Ocupación de Sala:</span>
-              <span class="text-slate-700 font-bold">${cl.cupos_reservados} / ${cl.aforo_maximo} cupos (${pctOcupacion}%)</span>
+              <span>Ocupación</span>
+              <span class="font-mono text-slate-700 font-bold">${cl.cupos_reservados}/${cl.aforo_maximo} (${pctOcupacion}%)</span>
             </div>
-            <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+            <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
               <div class="h-full ${colorBarra} transition-all duration-500 rounded-full" style="width: ${pctOcupacion}%"></div>
             </div>
           </div>
         </div>
 
         <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-          <span class="text-[11px] font-medium text-slate-400">Convenio SENA $0</span>
-          <button 
-            onclick="reservarCupoClase(${cl.id})" 
+          <span class="text-[11px] font-semibold text-slate-400">Convenio SENA · $0</span>
+          <button
+            onclick="reservarCupoClase(${cl.id})"
             ${!hayCupos ? 'disabled' : ''}
-            class="px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all shadow-md ${
-              hayCupos 
-                ? 'bg-[#39A900] hover:bg-[#2e8700] text-white shadow-emerald-700/20 active:scale-95 hover:shadow-lg' 
-                : 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200 shadow-none'
+            class="px-4 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all ${
+              hayCupos
+                ? 'bg-[#39A900] hover:bg-[#2e8700] text-white shadow-glow-sena active:scale-95'
+                : 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200'
             }"
           >
             ${hayCupos ? 'Reservar Cupo' : 'Sin Cupos'}

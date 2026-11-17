@@ -9,10 +9,10 @@
   <title>Dashboard Aprendiz - VITALGYM | SENA La Angostura</title>
   <link rel="icon" type="image/png" href="logo.png">
   
-  <!-- Google Fonts: Plus Jakarta Sans -->
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,19 +23,21 @@
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
           },
           colors: {
             sena: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              200: '#bbf7d0',
-              300: '#86efac',
-              400: '#4ade80',
-              500: '#39A900', // Verde SENA Oficial
+              50: '#f2fcf0',
+              100: '#e0f8db',
+              200: '#c2f0b8',
+              300: '#93e384',
+              400: '#5bce48',
+              500: '#39A900',
               600: '#2e8700',
               700: '#236900',
-              800: '#1b4d00',
-              900: '#0b2b00',
+              800: '#194b00',
+              900: '#0b2600',
             }
           }
         }
@@ -43,61 +45,69 @@
     }
   </script>
   <style>
-    ::-webkit-scrollbar { width: 7px; height: 7px; }
-    ::-webkit-scrollbar-track { background: #f8fafc; }
-    ::-webkit-scrollbar-thumb { background: #39A900; border-radius: 6px; }
-    ::-webkit-scrollbar-thumb:hover { background: #2e8700; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #39A900; }
+    .hero-surface {
+      background-color: #071908;
+      background-image:
+        radial-gradient(ellipse 70% 60% at 15% 15%, rgba(57, 169, 0, 0.25) 0%, transparent 65%),
+        linear-gradient(135deg, #061406 0%, #0d2b0d 60%, #154211 100%);
+    }
   </style>
 </head>
-<body class="min-h-full flex flex-col font-sans antialiased text-slate-800 bg-slate-50 select-none">
+<body class="min-h-full flex flex-col font-sans antialiased text-slate-800 bg-[#F8FAFC] select-none">
 
   <!-- Franja superior institucional SENA -->
-  <div class="h-1.5 bg-gradient-to-r from-[#236900] via-[#39A900] to-emerald-400 w-full sticky top-0 z-50"></div>
+  <div class="h-1 bg-gradient-to-r from-[#071908] via-[#39A900] to-emerald-400 w-full sticky top-0 z-50"></div>
 
   <!-- ===================================================================== -->
   <!-- BARRA DE NAVEGACIÓN - MÓDULO APRENDIZ                                 -->
   <!-- ===================================================================== -->
-  <header class="border-b border-slate-200 bg-white/95 backdrop-blur sticky top-1.5 z-40 px-4 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4 shadow-sm">
-    <div class="flex items-center gap-3">
-      <a href="index.html" class="group flex items-center gap-2.5 active:scale-95 transition-transform" title="Volver al inicio">
-        <img src="logo.png" alt="Logo VitalGym" class="h-10 w-10 rounded-xl object-cover shadow-sm border border-emerald-300">
-        <span class="h-6 w-px bg-slate-200"></span>
-        <img src="logo_sena.png" alt="Logo SENA" class="h-9 w-auto object-contain" style="max-height: 36px;">
-      </a>
-      <div>
-        <div class="flex items-center gap-2">
-          <h1 class="text-base font-black tracking-wider uppercase text-slate-900">VITALGYM</h1>
-          <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-[#236900] border border-emerald-200">
-            <img src="logo_sena.png" alt="SENA" class="h-2.5 w-auto"> APRENDIZ
-          </span>
-        </div>
-        <p class="text-[11px] text-slate-500 font-medium">Centro de Formación Agroindustrial · Sede La Angostura</p>
-      </div>
-    </div>
-
-    <!-- Menú del Aprendiz -->
-    <nav class="hidden md:flex items-center gap-1 bg-slate-100 p-1.5 rounded-2xl border border-slate-200 text-xs font-bold shadow-inner">
-      <span class="px-3.5 py-1.5 rounded-xl bg-[#39A900] text-white shadow-sm flex items-center gap-1.5">
-        <span>🏋️</span> Mi Rutina & Progreso
-      </span>
-      <a href="index.html" class="px-3 py-1.5 rounded-xl text-slate-600 hover:text-[#39A900] hover:bg-white transition flex items-center gap-1.5">
-        <span>🌐</span> Portal Principal
-      </a>
-    </nav>
-
-    <!-- Perfil del Aprendiz -->
-    <div class="flex items-center gap-3">
-      <div class="flex items-center gap-2.5 bg-emerald-50/80 border border-emerald-200 px-3.5 py-1.5 rounded-2xl shadow-sm">
-        <div class="h-8 w-8 rounded-full bg-[#39A900] text-white font-black text-xs flex items-center justify-center shadow overflow-hidden" id="auth-user-avatar">
-          <img id="header-avatar-img" src="avatar_santiago.jpg" alt="Avatar" class="w-full h-full object-cover">
-        </div>
-        <div class="text-left hidden sm:block">
-          <p class="text-xs font-bold text-slate-900 leading-tight" id="auth-user-name">Santiago Hernández</p>
-          <span class="text-[10px] text-[#236900] font-semibold">Programa ADSO · 3312595</span>
-        </div>
-        <a href="index.html" onclick="cerrarSesion()" title="Cerrar Sesión" class="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition ml-1">
-          <span class="text-sm">🚪</span>
+  <header class="border-b border-slate-200/80 bg-white/92 backdrop-blur-xl sticky top-1 z-40">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 h-[72px] flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="group flex items-center gap-2.5 active:scale-95 transition-transform" title="Volver al inicio">
+          <img src="logo.png" alt="Logo VitalGym" class="h-10 w-10 rounded-xl object-cover shadow-sm ring-2 ring-[#39A900]/25">
+          <span class="h-6 w-px bg-slate-200"></span>
+          <img src="logo_sena.png" alt="Logo SENA" class="h-9 w-auto object-contain">
         </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-display text-lg font-extrabold tracking-tight uppercase text-slate-900 leading-none">VITALGYM</h1>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#f2fcf0] text-[#236900] border border-[#39A900]/25">
+              APRENDIZ
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium hidden sm:block">Centro Agroindustrial · Sede La Angostura</p>
+        </div>
+      </div>
+
+      <!-- Menú del Aprendiz -->
+      <nav class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1 rounded-full border border-slate-200/70 text-xs font-bold">
+        <span class="px-4 py-1.5 rounded-full bg-white text-[#236900] shadow-sm flex items-center gap-1.5">
+          Mi Rutina & Progreso
+        </span>
+        <a href="index.html" class="px-4 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white/70 transition">
+          Portal Principal
+        </a>
+      </nav>
+
+      <!-- Perfil del Aprendiz -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2.5 bg-slate-50 border border-slate-200/80 pl-2 pr-3 py-1.5 rounded-full shadow-sm">
+          <div class="h-8 w-8 rounded-full bg-[#39A900] text-white font-black text-xs flex items-center justify-center shadow overflow-hidden" id="auth-user-avatar">
+            <img id="header-avatar-img" src="avatar_santiago.jpg" alt="Avatar" class="w-full h-full object-cover">
+          </div>
+          <div class="text-left hidden sm:block">
+            <p class="text-xs font-bold text-slate-900 leading-tight" id="auth-user-name">Santiago Hernández</p>
+            <span class="text-[10px] text-[#236900] font-semibold">Programa ADSO · 3312595</span>
+          </div>
+          <a href="index.html" onclick="cerrarSesion()" title="Cerrar Sesión" class="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-full transition ml-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -107,40 +117,40 @@
   <!-- ===================================================================== -->
   <main class="flex-1 w-full max-w-7xl mx-auto p-4 md:p-6 lg:p-8 space-y-6">
 
-    <!-- Tarjeta de Perfil del Aprendiz con Puntos de Constancia -->
-    <div class="bg-white border border-slate-200 rounded-3xl p-6 flex flex-wrap items-center justify-between gap-4 shadow-md">
+    <!-- Tarjeta de Perfil Ejecutiva con Puntos de Constancia -->
+    <div class="hero-surface text-white rounded-3xl p-6 sm:p-7 flex flex-wrap items-center justify-between gap-5 shadow-xl border border-emerald-900/60">
       <div class="flex items-center gap-4">
-        <!-- Avatar interactivo con botón de cambiar foto -->
         <div class="relative group cursor-pointer" onclick="abrirModalFotoPerfil()" title="Haz clic para cambiar tu foto de perfil">
-          <div id="banner-aprendiz-avatar" class="h-20 w-20 rounded-2xl bg-emerald-50 border-2 border-[#39A900] overflow-hidden shadow-md flex items-center justify-center transition-all duration-300 group-hover:ring-4 group-hover:ring-emerald-200">
+          <div id="banner-aprendiz-avatar" class="h-20 w-20 rounded-2xl bg-emerald-950 border-2 border-[#5bce48] overflow-hidden shadow-lg flex items-center justify-center transition-all duration-300 group-hover:ring-4 group-hover:ring-[#39A900]/40">
             <img id="img-aprendiz-avatar" src="avatar_santiago.jpg" alt="Foto de Perfil" class="w-full h-full object-cover">
           </div>
-          <button type="button" class="absolute -bottom-1 -right-1 h-7 w-7 rounded-full bg-[#39A900] hover:bg-[#236900] text-white flex items-center justify-center shadow-lg border-2 border-white transition transform group-hover:scale-110" title="Cambiar foto">
+          <button type="button" class="absolute -bottom-1 -right-1 h-7 w-7 rounded-full bg-[#39A900] hover:bg-[#44c404] text-white flex items-center justify-center shadow-lg border-2 border-[#0d2b0d] transition transform group-hover:scale-110" title="Cambiar foto">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </button>
         </div>
         <div>
-          <div class="flex items-center gap-2">
-            <h2 id="banner-aprendiz-nombre" class="text-xl font-black text-slate-900 transition-all duration-300">Santiago Hernández Vargas</h2>
-            <span id="banner-aprendiz-ranking" class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300 transition-all duration-300">
-              🥇 Puesto #1 Ranking
+          <div class="flex flex-wrap items-center gap-2.5">
+            <h2 id="banner-aprendiz-nombre" class="font-display text-2xl font-extrabold text-white transition-all duration-300">Santiago Hernández Vargas</h2>
+            <span id="banner-aprendiz-ranking" class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-200 border border-amber-300/30 transition-all duration-300">
+              Puesto #1 Ranking
             </span>
           </div>
-          <p id="banner-aprendiz-detalles" class="text-xs text-slate-500 mt-0.5">Programa ADSO · Ficha <strong class="text-slate-700">3312595</strong> | <span class="text-[#236900] font-bold">Plan Oro Activo (Sin Costo)</span></p>
-          <button type="button" onclick="abrirModalFotoPerfil()" class="inline-flex items-center gap-1.5 text-[11px] text-[#236900] hover:text-[#39A900] font-bold mt-1.5 hover:underline transition cursor-pointer">
+          <p id="banner-aprendiz-detalles" class="text-xs text-slate-300 mt-1">Programa ADSO · Ficha <strong class="text-white">3312595</strong> | <span class="text-[#65e33d] font-bold">Plan Oro Activo (Sin Costo)</span></p>
+          <button type="button" onclick="abrirModalFotoPerfil()" class="inline-flex items-center gap-1.5 text-[11px] text-emerald-300 hover:text-white font-semibold mt-1.5 hover:underline transition cursor-pointer">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-            Cambiar foto de perfil
+            Actualizar fotografía
           </button>
         </div>
       </div>
 
-      <div class="flex items-center gap-3">
-        <div class="bg-emerald-50 px-4 py-2.5 rounded-2xl border border-emerald-200 text-center shadow-sm">
-          <span class="text-[10px] text-[#236900] uppercase font-bold block">Puntos Constancia (HU-09)</span>
-          <span id="banner-aprendiz-puntos" class="text-2xl font-black text-[#2e8700] block transition-transform duration-300">260 pts</span>
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-white/15 text-center">
+          <span class="text-[10px] text-emerald-200 uppercase font-bold tracking-wider block">Puntos Constancia</span>
+          <span id="banner-aprendiz-puntos" class="font-display text-2xl font-black text-[#65e33d] block transition-transform duration-300">260 pts</span>
         </div>
-        <button id="btn-finalizar-entrenamiento" onclick="finalizarEntrenamiento()" class="px-5 py-3.5 rounded-2xl bg-[#39A900] hover:bg-[#2e8700] active:scale-95 text-white font-black text-xs uppercase tracking-wider transition shadow-md shadow-emerald-700/20 flex items-center gap-2">
-          <span>🏁</span> Entrenamiento Finalizado (+10 Pts)
+        <button id="btn-finalizar-entrenamiento" onclick="finalizarEntrenamiento()" class="px-5 py-3.5 rounded-xl bg-[#39A900] hover:bg-[#44c404] active:scale-95 text-white font-extrabold text-xs uppercase tracking-wider transition shadow-lg shadow-emerald-950/40 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          <span>Finalizar Entrenamiento (+10 Pts)</span>
         </button>
       </div>
     </div>

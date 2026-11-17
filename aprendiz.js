@@ -153,7 +153,7 @@ function actualizarBannerAprendiz() {
   if (carnetDocEl) carnetDocEl.textContent = `Doc: ${u.numero_documento || '1076903505'}`;
   if (qrTokenEl) qrTokenEl.textContent = u.codigo_qr_token || `QR-APR-${u.numero_documento || '1076903505'}`;
   if (detallesEl) {
-    detallesEl.innerHTML = `Programa ADSO · Ficha <strong class="text-slate-700">${escapeHtml(u.ficha_sena || '3312595')}</strong> | <span class="text-[#236900] font-bold">${escapeHtml(u.plan || 'Plan Oro Activo (Sin Costo)')}</span>`;
+    detallesEl.innerHTML = `Programa ADSO · Ficha <strong class="text-white">${escapeHtml(u.ficha_sena || '3312595')}</strong> | <span class="text-[#65e33d] font-bold">${escapeHtml(u.plan || 'Plan Oro Activo (Sin Costo)')}</span>`;
   }
 
   // Ranking dinámico según puntos
@@ -161,17 +161,17 @@ function actualizarBannerAprendiz() {
     const rIdx = estadoAprendiz.ranking.findIndex(r => r.nombres && r.nombres.toLowerCase().includes(nombres.toLowerCase().split(' ')[0]));
     const pos = rIdx >= 0 ? rIdx + 1 : (u.id === 5 ? 2 : (u.id === 6 ? 3 : 1));
     if (pos === 1) {
-      rankingEl.innerHTML = '🥇 Puesto #1 Ranking';
-      rankingEl.className = 'text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300 transition-all duration-300';
+      rankingEl.innerHTML = 'Puesto #1 Ranking';
+      rankingEl.className = 'text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-200 border border-amber-300/30 transition-all duration-300';
     } else if (pos === 2) {
-      rankingEl.innerHTML = '🥈 Puesto #2 Ranking';
-      rankingEl.className = 'text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-300 transition-all duration-300';
+      rankingEl.innerHTML = 'Puesto #2 Ranking';
+      rankingEl.className = 'text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white/15 text-white border border-white/25 transition-all duration-300';
     } else if (pos === 3) {
-      rankingEl.innerHTML = '🥉 Puesto #3 Ranking';
-      rankingEl.className = 'text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 transition-all duration-300';
+      rankingEl.innerHTML = 'Puesto #3 Ranking';
+      rankingEl.className = 'text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-200 border border-amber-400/30 transition-all duration-300';
     } else {
-      rankingEl.innerHTML = `🏅 Puesto #${pos} Ranking`;
-      rankingEl.className = 'text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#236900] border border-emerald-200 transition-all duration-300';
+      rankingEl.innerHTML = `Puesto #${pos} Ranking`;
+      rankingEl.className = 'text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#39A900]/25 text-[#65e33d] border border-[#5bce48]/35 transition-all duration-300';
     }
   }
 
